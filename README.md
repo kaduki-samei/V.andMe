@@ -36,7 +36,8 @@
  観戦した会場、その周辺で食べた美味しかったものなどを共有したい時。 <br>
 
 ## 🏐設計書
- 製作中・・・
+【ER図】<br>
+ https://drive.google.com/file/d/1h5mrHLja_VbP4Kyt7SyR1o8CQE4fVelj/view?usp=sharing
 
 ## 🏐チャレンジ要素一覧
  https://docs.google.com/spreadsheets/d/1TWI55XQp7nIbY3brFnhOdG6TIETa3PU5EOlidbczeP8/edit?usp=sharing
