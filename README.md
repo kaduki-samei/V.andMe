@@ -48,7 +48,7 @@
  JSライブラリ：jQuery<br>
  IDE：Cloud9<br>
 
-## 🏐使用素材
+## 🙏使用素材
  ロゴ：<a href=https://www.designevo.com/>designevo</a><br>
  アイコン：<a href=https://icooon-mono.com/>ICOOON MONO</a><br>
  アイコン：<a href=https://fontawesome.com/>Font Awesome</a><br>
