@@ -34,14 +34,16 @@
  初めて行く会場について知りたい時や、<br>
  観戦した会場、その周辺で食べた美味しかったものなどを共有したい時。 <br>
 
-## 🏐設計書
+## 設計書
 【ER図】<br>
- https://drive.google.com/file/d/1h5mrHLja_VbP4Kyt7SyR1o8CQE4fVelj/view?usp=sharing
+ https://drive.google.com/file/d/1h5mrHLja_VbP4Kyt7SyR1o8CQE4fVelj/view?usp=sharing<br>
+【詳細設計】<br>
+ https://docs.google.com/spreadsheets/d/1hklpnFVpt3JdrmhrZfAOiYLfR7WYOwir-JfIIRlwFxQ/edit?usp=sharing
 
-## 🏐チャレンジ要素一覧
+## チャレンジ要素一覧
  https://docs.google.com/spreadsheets/d/1TWI55XQp7nIbY3brFnhOdG6TIETa3PU5EOlidbczeP8/edit?usp=sharing
 
-## 🏐開発環境
+## 開発環境
  OS：Linux(CentOS)<br>
  言語：HTML,CSS,JavaScript,Ruby,SQL<br>
  フレームワーク：Ruby on Rails<br>
