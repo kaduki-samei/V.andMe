@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only:[:index, :show, :update]
     resources :posts, only:[:index, :show, :destroy]
-    resources :post_comments, only:[:destoy]
+    resources :post_comments, only:[:destroy]
+    resources :tags, only:[:index, :destroy]
   end
 
   devise_scope :admin do
