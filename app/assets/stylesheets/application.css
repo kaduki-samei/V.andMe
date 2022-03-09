@@ -18,14 +18,77 @@ body{
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*ヘッダーを避けるための空白div*/
+.push {
+  height: 80px;
+}
+
+p {
+  font-size: 13px;
+}
+
+.alert {
+  color: #ffb700;
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+}
+
+.notice {
+  color: #a0e8fc;
+  border-style:solid;
+  border-color: #a0e8fc;
+  border-width:thin;
+}
+
+.blue-btn {
+  color: #184da3;
+  background: #e7f9fe;
+  border-color: #184da3;
+  border-radius: 0;
+  border-width:thin;
+}
+
+.blue-btn:hover {
+  color: #FFFFFF;
+  background: #a0e8fc;
+}
+
+.orange-btn {
+  background: #ffb700;
+  border-radius: 0;
+  border-width:thin;
+}
+
+.orange-btn:hover {
+  color: #ffb700;
+  background: #ffff64;
+  border-color: #ffb700;
+}
+
+.caution {
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+  padding: 20px;
+}
+
 header {
+  height: 80px;
   color: #FFFFFF;
   background-color: #a0e8fc;
 }
 
+/*vmはサイトタイトル*/
 .vm {
   color: #FFFFFF;
-  font-size: 48px;
+  font-size: 52px;
   font-family: 'Baloo Tamma 2', cursive;
 }
 
@@ -48,5 +111,6 @@ header {
 }
 
 footer {
+  height: 80px;
   background-color: #ffb700;
 }

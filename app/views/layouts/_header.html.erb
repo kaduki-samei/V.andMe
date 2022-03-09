@@ -1,15 +1,24 @@
-<header class="mb-5">
+<header class="fixed-top">
   <div class="container">
     <nav class="row d-flex align-items-center">
       <%= link_to "V&Me", root_path, class: "vm" %>
 
       <ul class="navbar-nav ml-auto flex-row">
-        <li class="nav_item mr-4">
-          <%= link_to "新規登録", new_user_registration_path, class: "btn header-btn"%>
-        </li>
-        <li class="nav_item">
-          <%= link_to "ログイン", new_user_session_path, class: "btn header-btn"%>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav_item mr-4">
+            <%= link_to "マイページ", user_path(current_user), class: "btn header-btn"%>
+          </li>
+          <li class="nav_item">
+            <%= link_to "投稿する", new_post_path, class: "btn header-btn"%>
+          </li>
+        <% else %>
+          <li class="nav_item mr-4">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn header-btn"%>
+          </li>
+          <li class="nav_item">
+            <%= link_to "ログイン", new_user_session_path, class: "btn header-btn"%>
+          </li>
+        <% end %>
       </ul>
 
     </nav>
