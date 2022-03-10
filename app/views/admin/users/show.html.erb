@@ -1,2 +1,24 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="side_bar col-3">
+
+  <div class="user_info">
+    <div class="user_image">
+      <% if @user.profile_image? %>
+        <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
+      <% else %>
+        <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
+      <% end %>
+    </div>
+    <div class="user_name">
+      <%= @user.name %>
+    </div>
+    <div class="user_introduction">
+      <%= @user.introduction %>
+    </div>
+  </div>
+  <% if @user.is_active == true %>
+    <%= link_to "停止する", admin_user_path, method: :patch, params: { is_active: :false }, class: "btn blue-btn"%>
+  <% else %>
+    <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn blue-btn"%>
+  <% end %>
+
+</div>

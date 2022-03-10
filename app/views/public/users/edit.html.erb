@@ -1,2 +1,32 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<h2>ユーザー情報編集</h2>
+
+<%= form_with model:@user, local:true do |f| %>
+  <div class="field">
+    <% if @user.profile_image? %>
+      <%= image_tag @user.profile_image.thumb.url, class: "user-icon" %>
+    <% else %>
+      <%= image_tag "default.png", alt: "user-icon", size: "60", class: "user-icon" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.file_field :profile_image, accept: 'image/jpeg,image/gif,image/png' %>
+  </div>
+  <div class="field">
+    <%= f.check_box :remove_profile_image %>
+    画像を削除する
+  </div>
+  <div class="field">
+    <%= f.label :ユーザー名 %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介文 %><br />
+    <%= f.text_field :introduction %>
+  </div>
+
+  <div class="actions mt-3">
+    <%= f.submit "変更を保存する", class: "btn blue-btn" %>
+  </div>
+<% end %>
+<%= link_to "戻る", user_path(@user), class: "btn orange-btn mt-3" %>

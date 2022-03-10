@@ -4,18 +4,18 @@ Rails.application.routes.draw do
     get 'tags/index'
   end
   # 管理者側
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
+  devise_for :admin, skip: [:registrations], controllers: {
+  sessions: "admin/sessions",
+  passwords: "admin/passwords",
 }
+  devise_scope :admin do
+    get '/admin/sign_out' => 'admin/sessions#destroy'
+  end
   namespace :admin do
     resources :users, only:[:index, :show, :update]
     resources :posts, only:[:index, :show, :destroy]
     resources :post_comments, only:[:destroy]
     resources :tags, only:[:index, :destroy]
-  end
-
-  devise_scope :admin do
-    get "/admin/sign_out" => "devise/sessions#destroy"
   end
 
 
@@ -25,11 +25,18 @@ Rails.application.routes.draw do
   passwords: "public/passwords",
   registrations: "public/registrations"
 }
-
+  devise_scope :user do
+    get '/users/sign_out' => 'public/sessions#destroy'
+  end
   scope module: :public do
     root "homes#top"
     get "/about" => "homes#about"
-    resources :users, only:[:show, :edit, :update]
+    resources :users, only:[:show, :edit, :update] do
+      collection do
+        get "quit"
+        patch "out"
+      end
+    end
     resources :posts do
       collection do
         get "new_confirm"

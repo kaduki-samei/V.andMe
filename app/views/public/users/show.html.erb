@@ -1,2 +1,37 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="side_bar col-3">
+
+  <div class="user_info">
+    <div class="user_image">
+      <% if @user.profile_image? %>
+        <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
+      <% else %>
+        <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
+      <% end %>
+    </div>
+    <div class="user_name">
+      <%= @user.name %>
+    </div>
+    <div class="user_introduction">
+      <%= @user.introduction %>
+    </div>
+  </div>
+  <% if @user == current_user %>
+    <div class="user_btn">
+      <%= link_to "編集", edit_user_path, class: "btn blue-btn"%>
+    </div>
+    <div class="user_btn">
+      <%= link_to "ログアウト", destroy_user_session_path, class: "btn blue-btn"%>
+    </div>
+    <div class="user_btn">
+      <%= link_to "ブックマーク", bookmarks_path, class: "btn orange-btn"%>
+    </div>
+    <div class="user_btn">
+      <%= link_to "フォローリスト", follows_path, class: "btn orange-btn"%>
+    </div>
+  <% else %>
+    <div class="user_btn">
+      <%= link_to "フォローする", follows_path, class: "btn orange-btn" %>
+    </div>
+  <% end %>
+
+</div>

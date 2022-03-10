@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/*----------全体----------*/
 body{
   font-family: 'Noto Sans JP', sans-serif;
 }
@@ -24,7 +25,6 @@ body{
   min-height: 100vh;
 }
 
-/*ヘッダーを避けるための空白div*/
 .push {
   height: 80px;
 }
@@ -61,7 +61,9 @@ p {
 }
 
 .orange-btn {
+  color: #184da3;
   background: #ffb700;
+  border-color: #184da3;
   border-radius: 0;
   border-width:thin;
 }
@@ -72,23 +74,16 @@ p {
   border-color: #ffb700;
 }
 
-.caution {
-  border-style:solid;
-  border-color: #ffb700;
-  border-width:thin;
-  padding: 20px;
-}
-
+/*----------ヘッダー----------*/
 header {
   height: 80px;
   color: #FFFFFF;
   background-color: #a0e8fc;
 }
 
-/*vmはサイトタイトル*/
 .vm {
   color: #FFFFFF;
-  font-size: 52px;
+  font-size: 58px;
   font-family: 'Baloo Tamma 2', cursive;
 }
 
@@ -110,7 +105,37 @@ header {
   border-color: #FFFFFF;
 }
 
+/*----------フッター----------*/
 footer {
   height: 80px;
   background-color: #ffb700;
+}
+
+.footer_list {
+  color: #000000;
+}
+
+.footer_list:hover {
+  color: #ffff64;
+}
+
+/*----------サイドバー----------*/
+.side_bar {
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+  padding: 15px;
+}
+
+/*----------アバウトページ----------*/
+.caution {
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+  padding: 20px;
+}
+
+/*----------ユーザーアイコン----------*/
+.user-icon {
+  border-radius: 100px;
 }
