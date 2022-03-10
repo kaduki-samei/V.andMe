@@ -39,7 +39,8 @@ Rails.application.routes.draw do
     end
     resources :posts do
       collection do
-        post "confirm"
+        post "new_confirm"
+        post "edit_confirm"
       end
     end
     resources :post_comments, only:[:create, :destroy]

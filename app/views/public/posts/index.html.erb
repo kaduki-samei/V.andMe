@@ -1,2 +1,9 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<% @posts.each do |posts| %>
+  <%= posts.title %>
+  <% if posts.user.profile_image? %>
+    <%= image_tag posts.user.profile_image.thumb.url, size: "40", class: "user-icon" %>
+  <% else %>
+    <%= image_tag "default.png", alt: "user-icon", size: "40", class: "user-icon" %>
+  <% end %>
+  <%= posts.user.name %>
+<% end %>
