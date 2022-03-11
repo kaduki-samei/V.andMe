@@ -1,9 +1,21 @@
-<% @posts.each do |posts| %>
-  <%= posts.title %>
-  <% if posts.user.profile_image? %>
-    <%= image_tag posts.user.profile_image.thumb.url, size: "40", class: "user-icon" %>
-  <% else %>
-    <%= image_tag "default.png", alt: "user-icon", size: "40", class: "user-icon" %>
+<h2>新着記事</h2>
+<div class="post-index mt-4">
+  <% @posts.each do |posts| %>
+    <%= link_to post_path(posts), class: "card-link" do %>
+      <div class="post-card">
+        <div class="post-title">
+          <%= posts.title %>
+        </div>
+        <% if posts.user.profile_image? %>
+          <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+        <% end %>
+        <%= posts.user.name %>
+        <span class="day-date">
+          <%= posts.created_at.strftime('%Y/%m/%d') %>
+        </span>
+      </div>
+    <% end %>
   <% end %>
-  <%= posts.user.name %>
-<% end %>
+</div>

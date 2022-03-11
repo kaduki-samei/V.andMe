@@ -1,14 +1,20 @@
 <header class="fixed-top">
   <div class="container">
     <nav class="row d-flex align-items-center">
-      <%= link_to "V&Me", root_path, class: "vm" %>
+      <% if user_signed_in? %>
+        <%= link_to "V&Me", posts_path, class: "vm" %>
+      <% else %>
+        <%= link_to "V&Me", root_path, class: "vm" %>
+      <% end %>
       <ul class="navbar-nav ml-auto flex-row">
         <% if user_signed_in? %>
           <li class="nav_item mr-4">
             <%= render "layouts/search" %>
           </li>
           <li class="nav_item mr-4">
-            <%= link_to "マイページ", user_path(current_user), class: "btn header-btn"%>
+            <%= link_to user_path(current_user) do %>
+              <%= render "layouts/icon", user: current_user %>
+            <% end %>
           </li>
           <li class="nav_item">
             <%= link_to "投稿する", new_post_path, class: "btn header-btn"%>
