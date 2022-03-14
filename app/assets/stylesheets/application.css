@@ -17,6 +17,7 @@
 /*----------全体----------*/
 body{
   font-family: 'Noto Sans JP', sans-serif;
+  word-break: break-all;
 }
 
 .main-container {
@@ -72,10 +73,6 @@ p {
   background: #FFFFFF;
   border: 1px solid #ffb700;
   border-radius: 0;
-}
-
-.card-link:hover {
-  text-decoration: none;
 }
 
 .theme {
@@ -262,4 +259,47 @@ footer {
 }
 .day-date {
   color: gray;
+}
+
+/*----------ユーザー情報----------*/
+.side_bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-blue-btn {
+  width: 138px;
+  color: #FFFFFF;
+  background: #8ae0f8;
+  border-radius: 0;
+}
+
+.user-blue-btn:hover {
+  color: #8ae0f8;
+  background: #FFFFFF;
+  border: 1px solid #8ae0f8;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.user-orange-btn {
+  width: 138px;
+  color: #FFFFFF;
+  background: #ffb700;
+  border-radius: 0;
+}
+
+.user-orange-btn:hover {
+  color: #ffb700;
+  background: #FFFFFF;
+  border: 1px solid #ffb700;
+  border-radius: 0;
 }

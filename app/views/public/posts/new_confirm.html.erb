@@ -7,17 +7,24 @@
   <% end %>
   <%= @post.user.name %>
 </span>
+<div>
+  <% @tag_names.each do |tag| %>
+    <span class="tag">#<%= tag %></sapn>
+  <% end %>
+</div>
 <hr>
 <p><%= @post.content %></p>
 
 <div class="d-flex flex-row">
-  <%= form_with model: @post, url: new_back_posts_path, local: true do |f| %>
+  <%= form_with model: @post, url: new_back_posts_path(tag_name: @tag_names), local: true do |f| %>
     <%= f.hidden_field :title %>
+    <%= f.hidden_field :tag_name %>
     <%= f.hidden_field :content %>
     <%= f.submit "戻る", class: "btn blue-btn mr-2" %>
   <% end %>
-  <%= form_with model: @post, local: true do |f| %>
+  <%= form_with model: @post, url: posts_path(tag_name: @tag_names), local: true do |f| %>
     <%= f.hidden_field :title %>
+    <%= f.hidden_field :tag_name %>
     <%= f.hidden_field :content %>
     <%= f.submit "投稿する！", class: "btn orange-btn" %>
   <% end %>

@@ -1,14 +1,14 @@
 <div class="side_bar col-3">
 
-  <div class="user_info">
-    <div class="user_image">
+  <div class="user_info mb-4">
+    <div class="user_image mb-3">
       <% if @user.profile_image? %>
         <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
       <% else %>
         <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
       <% end %>
     </div>
-    <div class="user_name">
+    <div class="user_name mb-1">
       <%= @user.name %>
     </div>
     <div class="user_introduction">
@@ -16,22 +16,12 @@
     </div>
   </div>
   <% if @user == current_user %>
-    <div class="user_btn">
-      <%= link_to "編集", edit_user_path, class: "btn blue-btn"%>
-    </div>
-    <div class="user_btn">
-      <%= link_to "ログアウト", destroy_user_session_path, class: "btn blue-btn"%>
-    </div>
-    <div class="user_btn">
-      <%= link_to "ブックマーク", bookmarks_path, class: "btn orange-btn"%>
-    </div>
-    <div class="user_btn">
-      <%= link_to "フォローリスト", follows_path, class: "btn orange-btn"%>
-    </div>
+    <%= link_to "編集", edit_user_path, class: "btn user-blue-btn mb-1" %>
+    <%= link_to "ログアウト", destroy_user_session_path, class: "btn user-blue-btn mb-1" %>
+    <%= link_to "ブックマーク", bookmarks_path, class: "btn user-orange-btn mb-1" %>
+    <%= link_to "フォローリスト", follows_path, class: "btn user-orange-btn mb-1" %>
   <% else %>
-    <div class="user_btn">
-      <%= link_to "フォローする", follows_path, class: "btn orange-btn" %>
-    </div>
+    <%= link_to "フォローする", follows_path, class: "btn user-orange-btn mb-1" %>
   <% end %>
 
 </div>
