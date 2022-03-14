@@ -1,2 +1,11 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="theme">編集</div>
+<%= form_with model: @post, url: edit_confirm_post_path, local: true do |f| %>
+  <p>タイトル</p>
+  <%= f.text_field :title, class: "form mb-3" %>
+  <p>本文</p>
+  <%= f.rich_text_area :content, class: "mb-3" %>
+  <div class="flex">
+    <%= f.submit "確認", class: "btn orange-btn mr-2" %>
+    <%= link_to "戻る", post_path(@post), class: "btn blue-btn" %>
+  </div>
+<% end %>

@@ -40,7 +40,11 @@ Rails.application.routes.draw do
     resources :posts do
       collection do
         post "new_confirm"
-        post "edit_confirm"
+        post :new, path: :new, as: :new_back, action: :new_back
+      end
+      member do
+        patch 'edit_confirm'
+        patch :edit, path: :edit, as: :edit_back, action: :edit_back
       end
     end
     resources :post_comments, only:[:create, :destroy]

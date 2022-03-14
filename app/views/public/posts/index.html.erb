@@ -1,7 +1,7 @@
 <h2>新着記事</h2>
 <div class="post-index mt-4">
   <% @posts.each do |posts| %>
-    <%= link_to post_path(posts), class: "card-link" do %>
+    <%= link_to post_path(posts) do %>
       <div class="post-card">
         <div class="post-title">
           <%= posts.title %>

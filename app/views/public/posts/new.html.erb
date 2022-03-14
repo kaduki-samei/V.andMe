@@ -1,14 +1,8 @@
-<h2>新規投稿</h2>
-
+<div class="theme">新規投稿</div>
 <%= form_with model: @post, url: new_confirm_posts_path, local: true do |f| %>
-
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-
-  <h4>本文</h4>
-
-  <%= f.rich_text_area :content %>
-
+  <p>タイトル</p>
+  <%= f.text_field :title, class: "form mb-3" %>
+  <p>本文</p>
+  <%= f.rich_text_area :content, class: "mb-3" %>
   <%= f.submit "確認", class: "btn orange-btn" %>
-
 <% end %>
