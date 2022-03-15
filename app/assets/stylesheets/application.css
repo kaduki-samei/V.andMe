@@ -13,3 +13,253 @@
  *= require_tree .
  *= require_self
  */
+
+/*----------全体----------*/
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.push {
+  height: 80px;
+}
+
+p {
+  font-size: 13px;
+}
+
+.alert {
+  color: #ffb700;
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+}
+
+.notice {
+  color: #a0e8fc;
+  border-style:solid;
+  border-color: #a0e8fc;
+  border-width:thin;
+}
+
+.blue-btn {
+  color: #FFFFFF;
+  background: #8ae0f8;
+  border-radius: 0;
+}
+
+.blue-btn:hover {
+  color: #8ae0f8;
+  background: #FFFFFF;
+  border: 1px solid #8ae0f8;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.orange-btn {
+  color: #FFFFFF;
+  background: #ffb700;
+  border-radius: 0;
+}
+
+.orange-btn:hover {
+  color: #ffb700;
+  background: #FFFFFF;
+  border: 1px solid #ffb700;
+  border-radius: 0;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.theme {
+  font-size: 34px;
+  font-family: 'Kosugi Maru', sans-serif;
+  margin-bottom: 10px;
+}
+
+hr {
+  border-color: #808080;
+}
+
+.form {
+  border: 1px solid #aaa;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*----------ヘッダー----------*/
+header {
+  height: 80px;
+  color: #FFFFFF;
+  background-color: #95e8ff;
+}
+
+.vm {
+  color: #FFFFFF;
+  font-size: 58px;
+  font-family: 'Baloo Tamma 2';
+}
+
+.vm:hover {
+  color: #FFFFFF;
+}
+
+.header-btn {
+  color: #FFFFFF;
+  background: #95e8ff;
+  border-color: #FFFFFF;
+  border-radius: 0;
+}
+
+.header-btn:hover {
+  color: #8ae0f8;
+  background: #FFFFFF;
+}
+
+.search {
+	display: flex;
+	background-color: #FFFFFF;
+	border:1px solid #aaa;
+	padding: 2px 8px 2px 2px;
+}
+.search input{
+	border: none;
+}
+::placeholder {
+  color: #e0e0e0;
+  font-size: 14px;
+}
+.search input:focus {
+	outline-style: none;
+}
+.search button{
+	color: #aaa;
+	background: none;
+	border: none;
+	width: 20px;
+	height: 20px;
+}
+.search placeholder {
+  color: #FFFFFF;
+}
+
+/*----------フッター----------*/
+footer {
+  height: 80px;
+  background-color: #ffb700;
+}
+
+.footer_list {
+  color: #000000;
+}
+
+.footer_list:hover {
+  color: #ffff64;
+}
+
+/*----------サイドバー----------*/
+.side_bar {
+  border-style:solid;
+  border-color: #ffb700;
+  border-width:thin;
+  padding: 15px;
+}
+
+/*----------アバウトページ----------*/
+.caution {
+  border-style:solid;
+  border: 1px solid #ffb700;
+  padding: 20px;
+}
+
+/*----------ユーザーアイコン----------*/
+.user-icon {
+  border-radius: 100px;
+  border: 1px solid #FFFFFF;
+}
+
+.header-user-icon {
+  border-radius: 100px;
+  border: 1px solid #FFFFFF;
+}
+
+.header-user-icon:hover {
+  filter: brightness(110%);
+}
+
+/*----------トップページ----------*/
+.top-image {
+  width: 870px;
+  height: 340px;
+  padding: 10px;
+  background-image: url('top.png');
+  background-color: #a0e8fc;
+  background-size: cover;
+  background-position: center;
+}
+
+.top-image-box {
+  height: 320px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align:center;
+  padding: 15px;
+  animation: fadeIn 2s ease 1s 1 normal backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-image-text {
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+.top-image-subtext {
+  font-size: 13px;
+}
+
+/*----------投稿一覧----------*/
+.post-index {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.post-card {
+  height: 110px;
+  width: 300px;
+  margin: 0 20px 20px 0;
+  padding: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+.post-card:hover {
+  border: 1px solid #ffb700;
+  box-shadow: none;
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+.day-date {
+  color: gray;
+}

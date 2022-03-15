@@ -8,9 +8,20 @@
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Kosugi+Maru&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main-container">
+      <%= render 'layouts/header' %>
+      <div class="container mb-5">
+        <div class="push mb-5"></div>
+          <%= render "public/shared/flash_message" %>
+          <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,24 @@
+<div class="theme"><%= @post.title %></div>
+<sapn>
+  <% if @post.user.profile_image? %>
+    <%= image_tag @post.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+  <% else %>
+    <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+  <% end %>
+  <%= @post.user.name %>
+</span>
+<hr>
+<p><%= @post.content %></p>
+
+<div class="d-flex flex-row">
+  <%= form_with model: @post, url: new_back_posts_path, local: true do |f| %>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "戻る", class: "btn blue-btn mr-2" %>
+  <% end %>
+  <%= form_with model: @post, local: true do |f| %>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "投稿する！", class: "btn orange-btn" %>
+  <% end %>
+</div>

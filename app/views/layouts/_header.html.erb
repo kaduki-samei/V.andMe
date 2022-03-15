@@ -1,0 +1,50 @@
+<header class="fixed-top">
+  <div class="container">
+    <nav class="row d-flex align-items-center">
+      <% if user_signed_in? %>
+        <%= link_to "V&Me", posts_path, class: "vm" %>
+      <% else %>
+        <%= link_to "V&Me", root_path, class: "vm" %>
+      <% end %>
+      <ul class="navbar-nav ml-auto flex-row">
+        <% if user_signed_in? %>
+          <li class="nav_item mr-4">
+            <%= render "layouts/search" %>
+          </li>
+          <li class="nav_item mr-4">
+            <%= link_to user_path(current_user) do %>
+              <%= render "layouts/icon", user: current_user %>
+            <% end %>
+          </li>
+          <li class="nav_item">
+            <%= link_to "投稿する", new_post_path, class: "btn header-btn"%>
+          </li>
+        <% elsif admin_signed_in? %>
+          <li class="nav_item mr-4">
+            <%= render "layouts/search" %>
+          </li>
+          <li class="nav_item mr-4">
+            <%= link_to "post index", posts_path, class: "btn header-btn"%>
+          </li>
+          <li class="nav_item mr-4">
+            <%= link_to "user index", admin_users_path, class: "btn header-btn"%>
+          </li>
+          <li class="nav_item">
+            <%= link_to "log out", destroy_admin_session_path, class: "btn header-btn"%>
+          </li>
+        <% else %>
+          <li class="nav_item mr-4">
+            <%= render "layouts/search" %>
+          </li>
+          <li class="nav_item mr-4">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn header-btn"%>
+          </li>
+          <li class="nav_item">
+            <%= link_to "ログイン", new_user_session_path, class: "btn header-btn"%>
+          </li>
+        <% end %>
+      </ul>
+
+    </nav>
+  </div>
+</header>

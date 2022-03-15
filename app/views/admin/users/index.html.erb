@@ -1,2 +1,15 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<% @user.each do |user| %>
+  <div class="user_image">
+    <% if user.profile_image? %>
+      <%= image_tag user.profile_image.thumb.url, size: "80", class: "user-icon" %>
+    <% else %>
+      <%= image_tag "default.png", alt: "user-icon", size: "80", class: "user-icon" %>
+    <% end %>
+  </div>
+  <div class="user_prof">
+    <%= link_to admin_user_path(user.id), class: "text-dark", style: "text-decoration: underline" do %>
+      <%= user.name %>
+    <% end %>
+    <%= user.introduction %>
+  </div>
+<% end %>
