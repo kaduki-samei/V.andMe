@@ -1,14 +1,13 @@
 <div class="side_bar col-3">
-
-  <div class="user_info">
-    <div class="user_image">
+  <div class="user_info mb-4">
+    <div class="user_image mb-3">
       <% if @user.profile_image? %>
         <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
       <% else %>
         <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
       <% end %>
     </div>
-    <div class="user_name">
+    <div class="user_name mb-1">
       <%= @user.name %>
     </div>
     <div class="user_introduction">
@@ -20,5 +19,4 @@
   <% else %>
     <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn blue-btn"%>
   <% end %>
-
 </div>

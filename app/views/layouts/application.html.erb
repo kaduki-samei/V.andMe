@@ -14,12 +14,12 @@
   </head>
 
   <body>
-    <div class="main-container">
+    <div class="container-all">
       <%= render 'layouts/header' %>
+      <div class="push mb-5"></div>
       <div class="container mb-5">
-        <div class="push mb-5"></div>
-          <%= render "public/shared/flash_message" %>
-          <%= yield %>
+        <%= render "public/shared/flash_message" %>
+        <%= yield %>
       </div>
       <%= render 'layouts/footer' %>
     </div>

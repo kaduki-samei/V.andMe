@@ -2,6 +2,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = Post.order(created_at: :DESC)
     @tag_list=Tag.all
   end
 
@@ -39,6 +40,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @tag_names = @post.tags
+    @post_comment = PostComment.new
   end
 
   def edit

@@ -1,28 +1,24 @@
-<div class="side_bar col-3">
+<div class="in-container">
+  <%= render "layouts/user_info", user: @user %>
 
-  <div class="user_info mb-4">
-    <div class="user_image mb-3">
-      <% if @user.profile_image? %>
-        <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
-      <% else %>
-        <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
+  <div class="post-index ml-5">
+    <% @posts.each do |posts| %>
+      <%= link_to post_path(posts) do %>
+        <div class="post-card">
+          <div class="post-title">
+            <%= posts.title %>
+          </div>
+          <% if posts.user.profile_image? %>
+            <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+          <% else %>
+            <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+          <% end %>
+          <%= posts.user.name %>
+          <span class="day-date">
+            <%= posts.created_at.strftime('%Y/%m/%d') %>
+          </span>
+        </div>
       <% end %>
-    </div>
-    <div class="user_name mb-1">
-      <%= @user.name %>
-    </div>
-    <div class="user_introduction">
-      <%= @user.introduction %>
-    </div>
+    <% end %>
   </div>
-  <% if @user == current_user %>
-    <%= link_to "編集", edit_user_path, class: "btn user-blue-btn mb-1" %>
-    <%= link_to "ログアウト", destroy_user_session_path, class: "btn user-blue-btn mb-1" %>
-    <%= link_to "ブックマーク", bookmarks_path, class: "btn user-orange-btn mb-1" %>
-    <%= link_to "フォローリスト", follows_path, class: "btn user-orange-btn mb-1" %>
-  <% else %>
-    <%= link_to "フォローする", follows_path, class: "btn user-orange-btn mb-1" %>
-  <% end %>
-
 </div>
-
