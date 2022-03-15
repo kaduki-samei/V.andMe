@@ -1,30 +1,34 @@
-<div class="top-image">
-  <div class="top-image-box">
-    <p class="top-image-text">「ねぇ、Vリーグ観戦ってどんな感じ？」<br>
-        伝えよう！　楽しもう！<br>
-        あなたのVリーグ！<br>
-    </p>
-    <p class="top-image-subtext">投稿や一部機能のご利用には会員登録が必要です。</p>
-  </div>
-</div>
 
-<div class="post-index mt-4">
-  <% @posts.each do |posts| %>
-    <%= link_to post_path(posts) do %>
-      <div class="post-card">
-        <div class="post-title">
-          <%= posts.title %>
+
+<div class="right-box ml-5">
+  <div class="top-image">
+    <div class="top-image-box">
+      <p class="top-image-text">「ねぇ、Vリーグ観戦ってどんな感じ？」<br>
+          伝えよう！　楽しもう！<br>
+          あなたのVリーグ！<br>
+      </p>
+      <p class="top-image-subtext">投稿や一部機能のご利用には会員登録が必要です。</p>
+    </div>
+  </div>
+
+  <div class="post-index mt-4">
+    <% @posts.each do |posts| %>
+      <%= link_to post_path(posts) do %>
+        <div class="post-card">
+          <div class="post-title">
+            <%= posts.title %>
+          </div>
+          <% if posts.user.profile_image? %>
+            <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+          <% else %>
+            <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+          <% end %>
+          <%= posts.user.name %>
+          <span class="day-date">
+            <%= posts.created_at.strftime('%Y/%m/%d') %>
+          </span>
         </div>
-        <% if posts.user.profile_image? %>
-          <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
-        <% else %>
-          <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
-        <% end %>
-        <%= posts.user.name %>
-        <span class="day-date">
-          <%= posts.created_at.strftime('%Y/%m/%d') %>
-        </span>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

@@ -17,12 +17,17 @@
 /*----------全体----------*/
 body{
   font-family: 'Noto Sans JP', sans-serif;
+  word-break: break-all;
 }
 
-.main-container {
+.container-all {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.in-container {
+  display: flex;
 }
 
 .push {
@@ -74,10 +79,6 @@ p {
   border-radius: 0;
 }
 
-.card-link:hover {
-  text-decoration: none;
-}
-
 .theme {
   font-size: 34px;
   font-family: 'Kosugi Maru', sans-serif;
@@ -90,6 +91,10 @@ hr {
 
 .form {
   border: 1px solid #aaa;
+}
+
+.form:focus {
+	outline-style: none;
 }
 
 a:hover {
@@ -168,10 +173,14 @@ footer {
 
 /*----------サイドバー----------*/
 .side_bar {
+  padding: 15px;
   border-style:solid;
   border-color: #ffb700;
   border-width:thin;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
 }
 
 /*----------アバウトページ----------*/
@@ -244,7 +253,7 @@ footer {
 
 .post-card {
   height: 110px;
-  width: 300px;
+  width: 400px;
   margin: 0 20px 20px 0;
   padding: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -262,4 +271,88 @@ footer {
 }
 .day-date {
   color: gray;
+}
+
+/*----------ユーザー情報----------*/
+.user_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-blue-btn {
+  width: 138px;
+  color: #FFFFFF;
+  background: #8ae0f8;
+  border-radius: 0;
+}
+
+.user-blue-btn:hover {
+  color: #8ae0f8;
+  background: #FFFFFF;
+  border: 1px solid #8ae0f8;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.user-orange-btn {
+  width: 138px;
+  color: #FFFFFF;
+  background: #ffb700;
+  border-radius: 0;
+}
+
+.user-orange-btn:hover {
+  color: #ffb700;
+  background: #FFFFFF;
+  border: 1px solid #ffb700;
+  border-radius: 0;
+}
+
+/*----------記事----------*/
+.note{
+  padding: 15px 20px 15px 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nice{
+  color: #808080;
+}
+
+.nice:hover {
+  color: #ffff64;
+}
+
+.nice:visited{
+  color: #ffb700;
+}
+
+/*----------コメント----------*/
+.comment {
+  display: flex;
+  margin-top: 15px;
+}
+
+.comment form{
+  margin-left: auto;
+}
+
+.comment form div {
+  display: flex;
+ justify-content: flex-end;
+}
+
+.comment-card {
+  width: 55%;
+  margin-top: 10px;
+  padding: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.baketu {
+  color: #000000;
+}
+
+.baketu:hover {
+  color: #95e8ff;
 }

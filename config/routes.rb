@@ -46,10 +46,12 @@ Rails.application.routes.draw do
         patch 'edit_confirm'
         patch :edit, path: :edit, as: :edit_back, action: :edit_back
       end
+      resources :post_comments, only:[:create, :destroy]
+      resources :nices, only:[:create]
     end
-    resources :post_comments, only:[:create, :destroy]
+    post 'post_comments/:id/create' => 'post_comments#create'
+    get 'post_comments/:id/destroy' => 'post_comments#destroy'
     resources :follows, only:[:index, :create, :destroy]
-    resources :nices, only:[:create, :destroy]
     resources :bookmarks, only:[:index, :create, :destroy]
     resources :messages, only:[:new, :create] do
       collection do
