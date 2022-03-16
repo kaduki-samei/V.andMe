@@ -1,13 +1,10 @@
 <div class="in-container">
-  <%= render "layouts/user_info", user: current_user %>
+  <%= render "layouts/tag_list", tag_list: @tag_list %>
 
-  <% unless @bookmarks.present? %>
-    <p>ブックマークしている記事はありません</p>
-  <% end %>
-
-  <div class="right-box ml-5">
-    <div class="post-index">
-      <% @bookmark_posts.each do |posts| %>
+<div class="right-box ml-5">
+<p>[<i>#</i><%= @tag.tag_name %>]を含む投稿 <%= @tag.posts.count %>件</p>
+    <div class="post-index mt-4">
+      <% @posts.each do |posts| %>
         <div class="post-card">
           <%= link_to post_path(posts) do %><% end %>
           <div class="post-title">

@@ -1,4 +1,4 @@
-<div class="side_bar col-2 mr-4">
+<div class="side-bar-user col-2 mr-4">
   <div class="user_info mb-4">
     <div class="user_image mb-3">
       <% if user.profile_image? %>
@@ -14,9 +14,9 @@
       <%= user.introduction %>
     </div>
   </div>
-  <% if user == current_user %>
+  <% if user = current_user %>
     <%= link_to "編集", edit_user_path(user), class: "btn user-blue-btn mb-1" %>
-    <%= link_to "ログアウト", destroy_user_session_path(user), class: "btn user-blue-btn mb-1" %>
+    <%= link_to "ログアウト", destroy_user_session_path, class: "btn user-blue-btn mb-1" %>
     <%= link_to "ブックマーク", user_bookmarks_path(user), class: "btn user-orange-btn mb-1" %>
     <%= link_to "フォローリスト", user_follows_path(user), class: "btn user-orange-btn mb-1" %>
   <% else %>

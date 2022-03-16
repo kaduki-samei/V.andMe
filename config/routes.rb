@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       member do
         patch 'edit_confirm'
         patch :edit, path: :edit, as: :edit_back, action: :edit_back
+        get "search_tag"
       end
       resources :post_comments, only:[:create, :destroy]
       resources :nices, only:[:create]

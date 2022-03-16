@@ -29,9 +29,6 @@ class Post < ApplicationRecord
     end
     #新しいタグを保存
     new_tags.each do |new|
-      p "----DEBUG------"
-      p new
-      p "----DEBUG------"
       new_post_tag = Tag.find_or_create_by(tag_name: new)
       self.tags << new_post_tag
     end

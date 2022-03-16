@@ -29,27 +29,32 @@
     <% end %>
   </span>
   <%#ブックマーク%>
-  <span class="ml-2">
-    <% if @post.bookmark_by?(current_user) %>
-      <%= link_to post_bookmark_path(@post), method: :delete, class: "bookmarked" do %>
-        <i class="fas fa-bookmark"></i>
-        <% if @post.bookmarks.count >= 1 %>
-          <%= @post.bookmarks.count %>
+  <% if user_signed_in? %>
+    <span class="ml-2">
+      <% if @post.bookmark_by?(current_user) %>
+        <%= link_to post_bookmark_path(@post), method: :delete, class: "bookmarked" do %>
+          <i class="fas fa-bookmark"></i>
+          <% if @post.bookmarks.count >= 1 %>
+            <%= @post.bookmarks.count %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to post_bookmarks_path(@post), method: :post, class: "bookmark-yet" do %>
+          <i class="fas fa-bookmark"></i>
+          <% if @post.bookmarks.count >= 1 %>
+            <%= @post.bookmarks.count %>
+          <% end %>
         <% end %>
       <% end %>
-    <% else %>
-      <%= link_to post_bookmarks_path(@post), method: :post, class: "bookmark-yet" do %>
-        <i class="fas fa-bookmark"></i>
-        <% if @post.bookmarks.count >= 1 %>
-          <%= @post.bookmarks.count %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </span>
+    </span>
+  <% end %>
   <%#タグ%>
-  <div>
+  <div class="mt-2">
     <% @tag_names.each do |tag| %>
-      <span class="tag">#<%= tag %></sapn>
+    <span class="tag-btn">
+      <%= link_to search_tag_post_path(tag) do %><% end %>
+      <i>#</i><%= tag.tag_name %>
+    </span>
     <% end %>
   </div>
   <hr>
@@ -88,9 +93,11 @@
   </div>
 <% end %>
 
-<div class="comment">
-  <%= form_with model: [@post, @post_comment] do |f| %>
-    <div><%= f.text_area :body, size: "50x4", placeholder: "コメント", class: "form mb-2" %></div>
-    <div><%= f.submit "送信する", class: "btn orange-btn" %></div>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="comment">
+    <%= form_with model: [@post, @post_comment] do |f| %>
+      <div><%= f.text_area :body, size: "50x4", placeholder: "コメント", class: "form mb-2" %></div>
+      <div><%= f.submit "送信する", class: "btn orange-btn" %></div>
+    <% end %>
+  </div>
+<% end %>

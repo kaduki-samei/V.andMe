@@ -171,18 +171,6 @@ footer {
   color: #ffff64;
 }
 
-/*----------サイドバー----------*/
-.side_bar {
-  padding: 15px;
-  border-style:solid;
-  border-color: #ffb700;
-  border-width:thin;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: auto;
-}
-
 /*----------アバウトページ----------*/
 .caution {
   border-style:solid;
@@ -253,7 +241,6 @@ footer {
 
 .post-card {
   position: relative;
-  height: 110px;
   width: 400px;
   margin: 0 20px 20px 0;
   padding: 8px;
@@ -282,7 +269,55 @@ footer {
   color: gray;
 }
 
-/*----------ユーザー情報----------*/
+.post-card-user {
+  margin-left: 5px;
+}
+
+.post-card-tag {
+  color: #808080;
+  margin: 0px 2px 5px 10px;
+}
+
+/*----------サイドバー2----------*/
+.side-bar-tag {
+  padding: 15px;
+  border: 1px solid #ffb700;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: auto;
+}
+
+.tag-btn {
+  position: relative;
+  margin: 0 5px 5px 0;
+  padding: 2px 5px 2px 5px;
+  color: #000000;
+  border: 1px solid #ffb700;
+  border-radius: 50vh;
+}
+
+.tag-btn a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.tag-btn:hover {
+  border: 1px solid #95e8ff;
+}
+
+/*----------サイドバー2----------*/
+.side-bar-user {
+  padding: 15px;
+  border: 1px solid #ffb700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+}
+
 .user_info {
   display: flex;
   flex-direction: column;
@@ -417,4 +452,32 @@ footer {
 .user-card:hover {
   border: 1px solid #95e8ff;
   box-shadow: none;
+}
+
+
+.post-form1 {
+  border: 1px solid #aaa;
+  width: 40%;
+}
+
+.post-form1:focus {
+	outline-style: none;
+}
+
+.post-form2 {
+  border: 1px solid #aaa;
+  width: 80%;
+}
+
+.post-form2:focus {
+	outline-style: none;
+}
+
+
+
+
+
+/*----------ちょっとしたもの----------*/
+.ball {
+  color: #95e8ff;
 }
