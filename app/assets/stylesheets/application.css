@@ -252,6 +252,7 @@ footer {
 }
 
 .post-card {
+  position: relative;
   height: 110px;
   width: 400px;
   margin: 0 20px 20px 0;
@@ -260,8 +261,16 @@ footer {
   color: #000000;
 }
 
+.post-card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
 .post-card:hover {
-  border: 1px solid #ffb700;
+  border: 1px solid #95e8ff;
   box-shadow: none;
 }
 
@@ -327,6 +336,26 @@ footer {
   color: #ffb700;
 }
 
+.post-user a {
+  color: #000000;
+}
+
+.bookmark-yet {
+  color: #808080;
+}
+
+.bookmark-yet:hover {
+  color: #ffff64;
+}
+
+.bookmarked {
+  color: #ffb700;
+}
+
+.bookmarked:hover {
+  color: #ffb700;
+}
+
 /*----------コメント----------*/
 .comment {
   display: flex;
@@ -349,10 +378,43 @@ footer {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-.baketu {
+.comment-user a {
   color: #000000;
 }
 
+.baketu {
+  color: #808080;
+}
+
 .baketu:hover {
-  color: #95e8ff;
+  color: #000000;
+}
+
+/*----------フォローリスト----------*/
+.follow-index {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.user-card {
+  position: relative;
+  height: 110px;
+  width: 250px;
+  margin: 0 20px 20px 0;
+  padding: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+.user-card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.user-card:hover {
+  border: 1px solid #95e8ff;
+  box-shadow: none;
 }

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
+
 
   mount_uploader :profile_image, ImageUploader
 
@@ -16,11 +18,13 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 60 }
 
 
+  #ログイン認証にEメールを使用しない
   def email_required?
     false
   end
   def email_changed?
     false
   end
+
 
 end

@@ -1,2 +1,23 @@
-<h1>Public::Follows#index</h1>
-<p>Find me in app/views/public/follows/index.html.erb</p>
+<div class="in-container">
+  <%= render "layouts/user_info", user: current_user %>
+
+  <% unless @follows.present? %>
+    <p>フォローしている投稿者はいません</p>
+  <% end %>
+
+  <div class="follow-index ml-5">
+    <% @follow_users.each do |follow| %>
+      <div class="post-card">
+        <%= link_to user_path(follow) do %><% end %>
+        <% if follow.user.profile_image? %>
+          <%= image_tag follow.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+        <% end %>
+        <%= follow.user.name %></br>
+        <%= follow.user.introduction %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
