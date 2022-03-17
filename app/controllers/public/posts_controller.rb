@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
   def new_confirm
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @tag_names = params.require(:post)[:tag_name].split(/[[:blank:]]/)
+    @tag_names = params.require(:post)[:tag_name].split(/[[:blank:]]+/)
     if @post.invalid?
       flash.now[:notice] = "記入漏れがあります"
       render :new
@@ -23,7 +23,7 @@ class Public::PostsController < ApplicationController
 
   def new_back
     @post = Post.new(post_params)
-    @tag_names = params[:tag_name].join(/[[:blank:]]/)
+    @tag_names = params[:tag_name].join(/[[:blank:]]+/)
     render :new
   end
 
@@ -55,7 +55,7 @@ class Public::PostsController < ApplicationController
   def edit_confirm
     @post = Post.find(params[:id])
     @post.attributes = post_params
-    @tag_names = params.require(:post)[:tag_name].split(/[[:blank:]]/)
+    @tag_names = params.require(:post)[:tag_name].split(/[[:blank:]]+/)
     if @post.invalid?
       flash.now[:notice] = "記入漏れがあります"
       render :edit
@@ -65,7 +65,7 @@ class Public::PostsController < ApplicationController
   def edit_back
     @post = Post.find(params[:id])
     @post.attributes = post_params
-    @tag_names = params[:tag_name].join(/[[:blank:]]/)
+    @tag_names = params[:tag_name].join(/[[:blank:]]+/)
     render :edit
   end
 

@@ -37,7 +37,7 @@ Rails.application.routes.draw do
         patch "out"
       end
       get '/bookmarks' => 'bookmarks#index'
-      resources :follows, only:[:index, :create, :destroy]
+      resources :relationships, only:[:index, :create, :destroy]
     end
     resources :posts do
       collection do

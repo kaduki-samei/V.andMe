@@ -14,19 +14,18 @@
       <%= user.introduction %>
     </div>
   </div>
-  <% if user = current_user %>
+   <% if current_user != user %>
+    <% if current_user.following?(user)%>
+      <%= link_to "フォローを外す", user_relationship_path(user.id), method: :destroy, class: "btn user-orange-btn mb-1" %>
+    <%else%>
+      <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn user-orange-btn mb-1" %>
+    <% end %>
+  <% else %>
     <%= link_to "編集", edit_user_path(user), class: "btn user-blue-btn mb-1" %>
     <%= link_to "ログアウト", destroy_user_session_path, class: "btn user-blue-btn mb-1" %>
     <%= link_to "ブックマーク", user_bookmarks_path(user), class: "btn user-orange-btn mb-1" %>
-    <%= link_to "フォローリスト", user_follows_path(user), class: "btn user-orange-btn mb-1" %>
-  <% else %>
-     <% if current_user != user %>
- 　    <% if current_user.user_followys?(user) %>
-        <%= link_to "フォローを外す", user_follows_path(user.id), method: :destroy, class: "btn user-orange-btn mb-1" %>
-      <%else%>
-        <%= link_to "フォローする", user_follows_path(user.id), method: :post, class: "btn user-orange-btn mb-1" %>
-      <% end %>
-    <% end %>
+    <%= link_to "フォローリスト", user_relationships_path(user), class: "btn user-orange-btn mb-1" %>
   <% end %>
+
 </div>
 
