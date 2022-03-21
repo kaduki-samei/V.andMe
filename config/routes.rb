@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     get '/admin/sign_out' => 'admin/sessions#destroy'
   end
   namespace :admin do
-    resources :users, only:[:index, :show, :update]
-    resources :posts, only:[:index, :show, :destroy]
-    resources :post_comments, only:[:destroy]
-    resources :tags, only:[:index, :destroy]
+    resources :users, only:[:index, :show, :update, :destroy]
+    resources :posts, only:[:index, :show, :destroy] do
+      resources :post_comments, only:[:destroy]
+    end
   end
 
 

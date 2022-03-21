@@ -1,2 +1,61 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="note mb-4">
+  <%#タイトル%>
+  <div class="theme"><%= @post.title %></div>
+  <%#投稿者情報%>
+  <span class="post-user">
+    <%= link_to user_path(@post.user) do %>
+      <% if @post.user.profile_image? %>
+        <%= image_tag @post.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+      <% else %>
+        <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+      <% end %>
+      <%= @post.user.name %>
+    <% end %>
+  </span>
+  <%#日付情報%>
+  <span class="day-date ml-3">
+    投稿<%= @post.created_at.strftime('%Y/%m/%d') %>
+    <% if @post.created_at + 1.day < @post.updated_at %>
+      更新<%= @post.updated_at.strftime('%Y/%m/%d') %>
+    <% end %>
+  </span>
+  <%#タグ%>
+  <div class="mt-2">
+    <% @tag_names.each do |tag| %>
+    <span class="tag-btn">
+      <%= link_to search_tag_post_path(tag) do %><% end %>
+      <i>#</i><%= tag.tag_name %>
+    </span>
+    <% end %>
+  </div>
+  <hr>
+  <p><%= @post.content %></p>
+
+  <div>
+  <%= link_to "削除する", admin_post_path(@post), method: :delete, data: { confirm: "記事を削除しますか？" }, class: "btn blue-btn" %>
+  </div>
+
+</div>
+
+
+
+<%#コメント%>
+<% @post.post_comments.each do |post_comment| %>
+  <div class="comment-card">
+    <span class="comment-user">
+      <%= link_to user_path(post_comment.user) do %>
+        <% if post_comment.user.profile_image? %>
+          <%= image_tag post_comment.user.profile_image.thumb.url, size: "25", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "25", class: "user-icon" %>
+        <% end %>
+        <%= post_comment.user.name %>
+      <% end %>
+    </span>
+    <span class="day-date ml-3"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+    <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: "baketu ml-3" do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+    <div class="mt-1"><%= safe_join(post_comment.body.split("\n"),tag(:br)) %></div>
+  </div>
+<% end %>

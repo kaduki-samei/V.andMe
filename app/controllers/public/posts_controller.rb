@@ -19,6 +19,10 @@ class Public::PostsController < ApplicationController
       flash.now[:notice] = "記入漏れがあります"
       render :new
     end
+    if @tag_name.nil?
+      flash.now[:notice] = "タグを設定しましょう！"
+      render :new
+    end
   end
 
   def new_back
