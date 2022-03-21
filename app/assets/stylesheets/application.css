@@ -79,6 +79,10 @@ p {
   border-radius: 0;
 }
 
+.btn:focus {
+	outline-style: none;
+}
+
 .theme {
   font-size: 34px;
   font-family: 'Kosugi Maru', sans-serif;
@@ -99,6 +103,10 @@ hr {
 
 a:hover {
   text-decoration: none;
+}
+
+a:focus {
+  outline-style: none;
 }
 
 /*----------ヘッダー----------*/
@@ -279,7 +287,7 @@ footer {
   margin: 0px 2px 5px 10px;
 }
 
-/*----------サイドバー2----------*/
+/*----------サイドバー1----------*/
 .side-bar-tag {
   padding: 15px;
   border: 1px solid #ffb700;
@@ -482,7 +490,7 @@ footer {
 
 .user-card {
   position: relative;
-  width: 250px;
+  width: 400px;
   margin: 0 20px 20px 0;
   padding: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -502,7 +510,114 @@ footer {
   box-shadow: none;
 }
 
+.user-card-name {
+  font-size: 18px;
+}
 
+/*----------ユーザーedit----------*/
+.user-form1 {
+  border: 1px solid #aaa;
+  width: 250px;
+}
+
+.user-form1:focus {
+	outline-style: none;
+}
+
+.user-form2 {
+  border: 1px solid #aaa;
+  width: 350px;
+  height: 100px;
+}
+
+.user-form2:focus {
+	outline-style: none;
+}
+
+.imagefield {
+  font-size: 13px;
+}
+
+.imagedelete {
+  font-size: 13px;
+}
+
+.label {
+  margin: 10px 0 2px 0;
+}
+
+/*----------問い合わせ----------*/
+.mail-form {
+  border: 1px solid #aaa;
+  width: 300px;
+}
+
+.mail-form:focus {
+	outline-style: none;
+}
+
+.mail-form2 {
+  border: 1px solid #aaa;
+  width: 450px;
+}
+
+.mail-form2:focus {
+	outline-style: none;
+}
+
+.mail-form3 {
+  border: 1px solid #aaa;
+  width: 450px;
+  height: 200px;
+}
+
+.mail-form3:focus {
+	outline-style: none;
+}
+
+.confirm-form {
+  border: 1px solid #aaa;
+  width: 300px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.confirm-form2 {
+  border: 1px solid #aaa;
+  width: 450px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.confirm-form3 {
+  border: 1px solid #aaa;
+  width: 450px;
+  min-height: 200px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.thanx-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thanx {
+  text-align: center;
+}
+
+.thanx-page p {
+  text-align: center;
+}
+
+.red {
+  color: red;
+  margin: 10px 0 3px 0;
+}
 
 
 

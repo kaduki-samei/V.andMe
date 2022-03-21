@@ -62,6 +62,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'actiontext'
+gem "dotenv-rails"
 
 gem 'dotenv-rails'
 group :production do

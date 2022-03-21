@@ -55,7 +55,8 @@ Rails.application.routes.draw do
     end
     resources :messages, only:[:new, :create] do
       collection do
-        get "confirm"
+        post "mail_confirm"
+        post :new, path: :new, as: :back, action: :back
         get "thanx"
       end
     end

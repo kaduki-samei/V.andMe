@@ -11,8 +11,7 @@ class Public::RelationshipsController < ApplicationController
   end
 
   def index
-    user = User.find(params[:user_id])
-    @users = user.followings.all
+    @users = current_user.followings.all
   end
 
 

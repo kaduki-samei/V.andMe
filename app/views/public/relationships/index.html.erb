@@ -1,10 +1,30 @@
+<div class="in-container">
+  <%= render "layouts/user_info", user: current_user %>
 
-<% if @users.exists? %>
-  <table class="table">
-    <% @users.each do |user| %>
-      <%= user.name %>
-      <%= user.introduction %>
+  <div class="right-box ml-5">
+    <% unless @users.exists? %>
+      <p>フォローしている投稿者はいません</p>
+    <% else %>
+
+      <div class="post-index">
+        <% @users.each do |user| %>
+          <div class="user-card">
+            <%= link_to user_path(user) do %><% end %>
+            <div>
+              <% if user.profile_image? %>
+                <%= image_tag user.profile_image.thumb.url, size: "40", class: "user-icon" %>
+              <% else %>
+                <%= image_tag "default.png", alt: "user-icon", size: "40", class: "user-icon" %>
+              <% end %>
+              <span class="user-card-name ml-1"><%= user.name %></span>
+            </div>
+            <div>
+              <p><%= user.introduction %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+  </div>
+
+</div>

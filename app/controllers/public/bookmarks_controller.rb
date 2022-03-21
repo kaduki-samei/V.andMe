@@ -4,7 +4,7 @@ class Public::BookmarksController < ApplicationController
 
   def index
     @bookmarks = current_user.bookmarks
-    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :DESC)
   end
 
   def create
