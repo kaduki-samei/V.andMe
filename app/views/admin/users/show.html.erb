@@ -16,23 +16,13 @@
         <%= @user.introduction %>
       </div>
       <% if @user.is_active == true %>
-        <%= link_to "停止する", admin_user_path, method: :patch, params: { is_active: :false }, class: "btn blue-btn" %>
+        <%= link_to "停止する", admin_user_path, method: :patch, params: { is_active: :false }, class: "btn user-blue-btn" %>
       <% else %>
-        <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn blue-btn" %>
-        <%= link_to "完全削除", admin_user_path, method: :delete, data: { confirm: "ユーザー情報を完全に削除しますか？" }, class: "btn blue-btn" %>
+        <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn user-orange-btn mb-1" %>
+        <%= link_to "完全削除", admin_user_path, method: :delete, data: { confirm: "ユーザー情報を完全に削除しますか？" }, class: "btn user-blue-btn" %>
       <% end %>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
 
   <div class="right-box ml-5">
     <div class="post-index">

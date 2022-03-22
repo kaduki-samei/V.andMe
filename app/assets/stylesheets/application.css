@@ -82,6 +82,12 @@ p {
 .btn:focus {
 	outline-style: none;
 }
+.blue-btn:focus {
+	outline-style: none;
+}
+.orange-btn:focus {
+	outline-style: none;
+}
 
 .theme {
   font-size: 34px;
@@ -138,6 +144,10 @@ header {
   background: #FFFFFF;
 }
 
+.header-btn:focus {
+	outline-style: none;
+}
+
 .search {
 	display: flex;
 	background-color: #FFFFFF;
@@ -160,6 +170,9 @@ header {
 	border: none;
 	width: 20px;
 	height: 20px;
+}
+.search button:focus {
+	outline-style: none;
 }
 .search placeholder {
   color: #FFFFFF;
@@ -360,6 +373,13 @@ footer {
   background: #FFFFFF;
   border: 1px solid #ffb700;
   border-radius: 0;
+}
+
+.user-blue-btn:focus {
+	outline-style: none;
+}
+.user-orange-btn:focus {
+	outline-style: none;
 }
 
 /*----------記事----------*/
