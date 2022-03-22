@@ -13,15 +13,15 @@ class Public::BookmarksController < ApplicationController
     bookmark = Bookmark.new(post_id: post.id, user_id: user.id)
     if bookmark.save
       flash[:notice] = "ブックマークしました"
-      redirect_back(fallback_location: root_path)
     end
   end
 
   def destroy
+    @post = Post.find(params[:id])
     post = Post.find(params[:post_id])
     bookmark = current_user.bookmarks.find_by(post_id: post.id)
     bookmark.destroy
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:id])
   end
 
 end
