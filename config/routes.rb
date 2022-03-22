@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     get '/admin/sign_out' => 'admin/sessions#destroy'
   end
   namespace :admin do
-    resources :users, only:[:index, :show, :update]
-    resources :posts, only:[:index, :show, :destroy]
-    resources :post_comments, only:[:destroy]
-    resources :tags, only:[:index, :destroy]
+    resources :users, only:[:index, :show, :update, :destroy]
+    resources :posts, only:[:index, :show, :destroy] do
+      resources :post_comments, only:[:destroy]
+    end
   end
 
 
@@ -36,6 +36,8 @@ Rails.application.routes.draw do
         get "quit"
         patch "out"
       end
+      get '/bookmarks' => 'bookmarks#index'
+      resources :relationships, only:[:index, :create, :destroy]
     end
     resources :posts do
       collection do
@@ -45,17 +47,16 @@ Rails.application.routes.draw do
       member do
         patch 'edit_confirm'
         patch :edit, path: :edit, as: :edit_back, action: :edit_back
+        get "search_tag"
       end
       resources :post_comments, only:[:create, :destroy]
       resources :nices, only:[:create]
+      resources :bookmarks, only:[:create, :destroy]
     end
-    post 'post_comments/:id/create' => 'post_comments#create'
-    get 'post_comments/:id/destroy' => 'post_comments#destroy'
-    resources :follows, only:[:index, :create, :destroy]
-    resources :bookmarks, only:[:index, :create, :destroy]
     resources :messages, only:[:new, :create] do
       collection do
-        get "confirm"
+        post "mail_confirm"
+        post :new, path: :new, as: :back, action: :back
         get "thanx"
       end
     end

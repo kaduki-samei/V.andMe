@@ -79,6 +79,16 @@ p {
   border-radius: 0;
 }
 
+.btn:focus {
+	outline-style: none;
+}
+.blue-btn:focus {
+	outline-style: none;
+}
+.orange-btn:focus {
+	outline-style: none;
+}
+
 .theme {
   font-size: 34px;
   font-family: 'Kosugi Maru', sans-serif;
@@ -99,6 +109,10 @@ hr {
 
 a:hover {
   text-decoration: none;
+}
+
+a:focus {
+  outline-style: none;
 }
 
 /*----------ヘッダー----------*/
@@ -130,6 +144,10 @@ header {
   background: #FFFFFF;
 }
 
+.header-btn:focus {
+	outline-style: none;
+}
+
 .search {
 	display: flex;
 	background-color: #FFFFFF;
@@ -153,6 +171,9 @@ header {
 	width: 20px;
 	height: 20px;
 }
+.search button:focus {
+	outline-style: none;
+}
 .search placeholder {
   color: #FFFFFF;
 }
@@ -169,18 +190,6 @@ footer {
 
 .footer_list:hover {
   color: #ffff64;
-}
-
-/*----------サイドバー----------*/
-.side_bar {
-  padding: 15px;
-  border-style:solid;
-  border-color: #ffb700;
-  border-width:thin;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: auto;
 }
 
 /*----------アバウトページ----------*/
@@ -252,6 +261,7 @@ footer {
 }
 
 .post-card {
+  position: relative;
   height: 110px;
   width: 400px;
   margin: 0 20px 20px 0;
@@ -260,8 +270,16 @@ footer {
   color: #000000;
 }
 
+.post-card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
 .post-card:hover {
-  border: 1px solid #ffb700;
+  border: 1px solid #95e8ff;
   box-shadow: none;
 }
 
@@ -273,7 +291,55 @@ footer {
   color: gray;
 }
 
-/*----------ユーザー情報----------*/
+.post-card-user {
+  margin-left: 5px;
+}
+
+.post-card-tag {
+  color: #808080;
+  margin: 0px 2px 5px 10px;
+}
+
+/*----------サイドバー1----------*/
+.side-bar-tag {
+  padding: 15px;
+  border: 1px solid #ffb700;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: auto;
+}
+
+.tag-btn {
+  position: relative;
+  margin: 0 5px 5px 0;
+  padding: 2px 5px 2px 5px;
+  color: #000000;
+  border: 1px solid #ffb700;
+  border-radius: 50vh;
+}
+
+.tag-btn a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.tag-btn:hover {
+  border: 1px solid #95e8ff;
+}
+
+/*----------サイドバー2----------*/
+.side-bar-user {
+  padding: 15px;
+  border: 1px solid #ffb700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+}
+
 .user_info {
   display: flex;
   flex-direction: column;
@@ -309,6 +375,13 @@ footer {
   border-radius: 0;
 }
 
+.user-blue-btn:focus {
+	outline-style: none;
+}
+.user-orange-btn:focus {
+	outline-style: none;
+}
+
 /*----------記事----------*/
 .note{
   padding: 15px 20px 15px 20px;
@@ -324,6 +397,26 @@ footer {
 }
 
 .nice:visited{
+  color: #ffb700;
+}
+
+.post-user a {
+  color: #000000;
+}
+
+.bookmark-yet {
+  color: #808080;
+}
+
+.bookmark-yet:hover {
+  color: #ffff64;
+}
+
+.bookmarked {
+  color: #ffb700;
+}
+
+.bookmarked:hover {
   color: #ffb700;
 }
 
@@ -349,10 +442,207 @@ footer {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-.baketu {
+.comment-user a {
   color: #000000;
 }
 
+.baketu {
+  color: #808080;
+}
+
 .baketu:hover {
+  color: #000000;
+}
+
+/*----------フォローリスト----------*/
+.follow-index {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.user-card {
+  position: relative;
+  height: 110px;
+  width: 250px;
+  margin: 0 20px 20px 0;
+  padding: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+.user-card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.user-card:hover {
+  border: 1px solid #95e8ff;
+  box-shadow: none;
+}
+
+
+.post-form1 {
+  border: 1px solid #aaa;
+  width: 40%;
+}
+
+.post-form1:focus {
+	outline-style: none;
+}
+
+.post-form2 {
+  border: 1px solid #aaa;
+  width: 80%;
+}
+
+.post-form2:focus {
+	outline-style: none;
+}
+
+/*----------ユーザー一覧----------*/
+.user-index {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.user-card {
+  position: relative;
+  width: 400px;
+  margin: 0 20px 20px 0;
+  padding: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+.user-card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.user-card:hover {
+  border: 1px solid #95e8ff;
+  box-shadow: none;
+}
+
+.user-card-name {
+  font-size: 18px;
+}
+
+/*----------ユーザーedit----------*/
+.user-form1 {
+  border: 1px solid #aaa;
+  width: 250px;
+}
+
+.user-form1:focus {
+	outline-style: none;
+}
+
+.user-form2 {
+  border: 1px solid #aaa;
+  width: 350px;
+  height: 100px;
+}
+
+.user-form2:focus {
+	outline-style: none;
+}
+
+.imagefield {
+  font-size: 13px;
+}
+
+.imagedelete {
+  font-size: 13px;
+}
+
+.label {
+  margin: 10px 0 2px 0;
+}
+
+/*----------問い合わせ----------*/
+.mail-form {
+  border: 1px solid #aaa;
+  width: 300px;
+}
+
+.mail-form:focus {
+	outline-style: none;
+}
+
+.mail-form2 {
+  border: 1px solid #aaa;
+  width: 450px;
+}
+
+.mail-form2:focus {
+	outline-style: none;
+}
+
+.mail-form3 {
+  border: 1px solid #aaa;
+  width: 450px;
+  height: 200px;
+}
+
+.mail-form3:focus {
+	outline-style: none;
+}
+
+.confirm-form {
+  border: 1px solid #aaa;
+  width: 300px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.confirm-form2 {
+  border: 1px solid #aaa;
+  width: 450px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.confirm-form3 {
+  border: 1px solid #aaa;
+  width: 450px;
+  min-height: 200px;
+  padding: 2px;
+  background-color: #e0e0e0;
+  color: #909090;
+}
+
+.thanx-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thanx {
+  text-align: center;
+}
+
+.thanx-page p {
+  text-align: center;
+}
+
+.red {
+  color: red;
+  margin: 10px 0 3px 0;
+}
+
+
+
+
+/*----------ちょっとしたもの----------*/
+.ball {
   color: #95e8ff;
 }

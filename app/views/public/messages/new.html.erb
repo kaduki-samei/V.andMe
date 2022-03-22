@@ -1,2 +1,28 @@
-<h1>Public::Messages#new</h1>
-<p>Find me in app/views/public/messages/new.html.erb</p>
+<div class="theme">ご意見・お問い合せ</div>
+<p>twitterのDMからでもお問合せいただけます。</p>
+
+<%= form_with model: @message, url: mail_confirm_messages_path do |f| %>
+  <div class="form-group">
+    <p class="label">お名前</p>
+    <%= f.text_field :name, class: "mail-form" %>
+  </div>
+
+  <div class="form-group">
+    <p class="label">返信先メールアドレス</p>
+    <%= f.text_field :email, class: "mail-form" %>
+  </div>
+
+  <div class="form-group">
+    <p class="label">件名</p>
+    <%= f.text_field :title, class: "mail-form2" %>
+  </div>
+
+  <div class="form-group">
+    <p class="label">本文</p>
+    <%= f.text_area :body, class: "mail-form3" %>
+  </div>
+
+  <div>
+    <%= f.submit "入力内容確認", class: "btn blue-btn" %>
+  </div>
+<% end %>

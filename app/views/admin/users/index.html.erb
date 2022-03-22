@@ -1,15 +1,18 @@
-<% @user.each do |user| %>
-  <div class="user_image">
-    <% if user.profile_image? %>
-      <%= image_tag user.profile_image.thumb.url, size: "80", class: "user-icon" %>
-    <% else %>
-      <%= image_tag "default.png", alt: "user-icon", size: "80", class: "user-icon" %>
-    <% end %>
-  </div>
-  <div class="user_prof">
-    <%= link_to admin_user_path(user.id), class: "text-dark", style: "text-decoration: underline" do %>
-      <%= user.name %>
-    <% end %>
-    <%= user.introduction %>
-  </div>
-<% end %>
+<div class="post-index">
+  <% @users.each do |user| %>
+    <div class="user-card">
+      <%= link_to admin_user_path(user) do %><% end %>
+      <div>
+        <% if user.profile_image? %>
+          <%= image_tag user.profile_image.thumb.url, size: "40", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "40", class: "user-icon" %>
+        <% end %>
+        <span class="user-card-name ml-1"><%= user.name %></span>
+      </div>
+      <div>
+        <p><%= user.introduction %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

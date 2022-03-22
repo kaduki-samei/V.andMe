@@ -1,10 +1,11 @@
 <div class="in-container">
   <%= render "layouts/user_info", user: @user %>
 
-  <div class="post-index ml-5">
-    <% @posts.each do |posts| %>
-      <%= link_to post_path(posts) do %>
+  <div class="right-box ml-5">
+    <div class="post-index">
+      <% @posts.each do |posts| %>
         <div class="post-card">
+          <%= link_to post_path(posts) do %><% end %>
           <div class="post-title">
             <%= posts.title %>
           </div>
@@ -19,6 +20,7 @@
           </span>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+  </div>

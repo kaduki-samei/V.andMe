@@ -1,22 +1,49 @@
-<div class="side_bar col-3">
-  <div class="user_info mb-4">
-    <div class="user_image mb-3">
-      <% if @user.profile_image? %>
-        <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
+<div class="in-container">
+
+  <div class="side-bar-user col-2 mr-4">
+    <div class="user_info mb-4">
+      <div class="user_image mb-3">
+        <% if @user.profile_image? %>
+          <%= image_tag @user.profile_image.thumb.url, size: "100", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
+        <% end %>
+      </div>
+      <div class="user_name mb-1">
+        <%= @user.name %>
+      </div>
+      <div class="user_introduction mb-2">
+        <%= @user.introduction %>
+      </div>
+      <% if @user.is_active == true %>
+        <%= link_to "停止する", admin_user_path, method: :patch, params: { is_active: :false }, class: "btn user-blue-btn" %>
       <% else %>
-        <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
+        <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn user-orange-btn mb-1" %>
+        <%= link_to "完全削除", admin_user_path, method: :delete, data: { confirm: "ユーザー情報を完全に削除しますか？" }, class: "btn user-blue-btn" %>
       <% end %>
     </div>
-    <div class="user_name mb-1">
-      <%= @user.name %>
-    </div>
-    <div class="user_introduction">
-      <%= @user.introduction %>
+  </div>
+
+  <div class="right-box ml-5">
+    <div class="post-index">
+      <% @posts.each do |posts| %>
+        <div class="post-card">
+          <%= link_to post_path(posts) do %><% end %>
+          <div class="post-title">
+            <%= posts.title %>
+          </div>
+          <% if posts.user.profile_image? %>
+            <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+          <% else %>
+            <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+          <% end %>
+          <%= posts.user.name %>
+          <span class="day-date">
+            <%= posts.created_at.strftime('%Y/%m/%d') %>
+          </span>
+        </div>
+      <% end %>
     </div>
   </div>
-  <% if @user.is_active == true %>
-    <%= link_to "停止する", admin_user_path, method: :patch, params: { is_active: :false }, class: "btn blue-btn"%>
-  <% else %>
-    <%= link_to "復活せよ", admin_user_path, method: :patch, params: { is_active: :true }, class: "btn blue-btn"%>
-  <% end %>
+
 </div>

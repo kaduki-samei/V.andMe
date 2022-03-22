@@ -1,25 +1,60 @@
 <div class="note mb-4">
+  <%#タイトル%>
   <div class="theme"><%= @post.title %></div>
-  <sapn>
-    <% if @post.user.profile_image? %>
-      <%= image_tag @post.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
-    <% else %>
-      <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+  <%#投稿者情報%>
+  <span class="post-user">
+    <%= link_to user_path(@post.user) do %>
+      <% if @post.user.profile_image? %>
+        <%= image_tag @post.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+      <% else %>
+        <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+      <% end %>
+      <%= @post.user.name %>
     <% end %>
-    <%= @post.user.name %>
   </span>
+  <%#日付情報%>
   <span class="day-date ml-3">
-    記事作成<%= @post.created_at.strftime('%Y/%m/%d') %>
-    最終更新<%= @post.updated_at.strftime('%Y/%m/%d') %>
+    投稿<%= @post.created_at.strftime('%Y/%m/%d') %>
+    <% if @post.created_at + 1.day < @post.updated_at %>
+      更新<%= @post.updated_at.strftime('%Y/%m/%d') %>
+    <% end %>
   </span>
+  <%#ナイス%>
   <span class="ml-3">
     <%= link_to post_nices_path(@post), method: :post, class: "nice" do %>
-      <i class="fas fa-thumbs-up"></i><%= @post.nices.count %>
+      <i class="fas fa-thumbs-up"></i>
+      <% if @post.nices.count >= 1 %>
+        <%= @post.nices.count %>
+      <% end %>
     <% end %>
   </span>
-  <div>
+  <%#ブックマーク%>
+  <% if user_signed_in? %>
+    <span class="ml-2">
+      <% if @post.bookmark_by?(current_user) %>
+        <%= link_to post_bookmark_path(@post), method: :delete, class: "bookmarked" do %>
+          <i class="fas fa-bookmark"></i>
+          <% if @post.bookmarks.count >= 1 %>
+            <%= @post.bookmarks.count %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to post_bookmarks_path(@post), method: :post, class: "bookmark-yet" do %>
+          <i class="fas fa-bookmark"></i>
+          <% if @post.bookmarks.count >= 1 %>
+            <%= @post.bookmarks.count %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </span>
+  <% end %>
+  <%#タグ%>
+  <div class="mt-2">
     <% @tag_names.each do |tag| %>
-      <span class="tag">#<%= tag %></sapn>
+    <span class="tag-btn">
+      <%= link_to search_tag_post_path(tag) do %><% end %>
+      <i>#</i><%= tag.tag_name %>
+    </span>
     <% end %>
   </div>
   <hr>
@@ -38,14 +73,16 @@
 <%#コメント%>
 <% @post.post_comments.each do |post_comment| %>
   <div class="comment-card">
-    <sapn>
-      <% if post_comment.user.profile_image? %>
-        <%= image_tag post_comment.user.profile_image.thumb.url, size: "25", class: "user-icon" %>
-      <% else %>
-        <%= image_tag "default.png", alt: "user-icon", size: "25", class: "user-icon" %>
+    <span class="comment-user">
+      <%= link_to user_path(post_comment.user) do %>
+        <% if post_comment.user.profile_image? %>
+          <%= image_tag post_comment.user.profile_image.thumb.url, size: "25", class: "user-icon" %>
+        <% else %>
+          <%= image_tag "default.png", alt: "user-icon", size: "25", class: "user-icon" %>
+        <% end %>
+        <%= post_comment.user.name %>
       <% end %>
     </span>
-    <span><%= post_comment.user.name %></span>
     <span class="day-date ml-3"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
     <% if post_comment.user == current_user %>
       <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: "baketu ml-3" do %>
@@ -56,9 +93,11 @@
   </div>
 <% end %>
 
-<div class="comment">
-  <%= form_with model: [@post, @post_comment] do |f| %>
-    <div><%= f.text_area :body, size: "50x4", placeholder: "コメント", class: "form mb-2" %></div>
-    <div><%= f.submit "送信する", class: "btn orange-btn" %></div>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="comment">
+    <%= form_with model: [@post, @post_comment] do |f| %>
+      <div><%= f.text_area :body, size: "50x4", placeholder: "コメント", class: "form mb-2" %></div>
+      <div><%= f.submit "送信する", class: "btn orange-btn" %></div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,9 +1,9 @@
 <div class="theme">編集</div>
 <%= form_with model: @post, url: edit_confirm_post_path, local: true do |f| %>
   <p>タイトル</p>
-  <%= f.text_field :title, class: "form mb-3" %>
-  <p>タグ (,で区切ると複数タグ登録できます)</p>
-  <%= f.text_field :tag_name, class: "form mb-3", value: @tag_names %>
+  <%= f.text_field :title, class: "post-form1 mb-3" %>
+  <p>タグ (スペースで区切ると複数タグ登録できます)</p>
+  <%= f.text_field :tag_name, class: "post-form2 mb-3", value: @tag_list %>
   <p>本文</p>
   <%= f.rich_text_area :content, class: "mb-3" %>
   <div class="flex">

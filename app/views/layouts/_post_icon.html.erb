@@ -1,0 +1,27 @@
+<%#ナイス%>
+<span class="ml-3">
+  <%= link_to post_nices_path(post), method: :post, class: "nice" do %>
+    <i class="fas fa-thumbs-up"></i>
+    <% if post.nices.count >= 1 %>
+      <%= post.nices.count %>
+    <% end %>
+  <% end %>
+</span>
+<%#ブックマーク%>
+<span class="ml-2">
+  <% if post.bookmark_by?(current_user) %>
+    <%= link_to post_bookmark_path(post), method: :delete, class: "bookmarked" do %>
+      <i class="fas fa-bookmark"></i>
+      <% if post.bookmarks.count >= 1 %>
+        <%= post.bookmarks.count %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to post_bookmarks_path(post), method: :post, class: "bookmark-yet" do %>
+      <i class="fas fa-bookmark"></i>
+      <% if post.bookmarks.count >= 1 %>
+        <%= post.bookmarks.count %>
+      <% end %>
+    <% end %>
+  <% end %>
+</span>

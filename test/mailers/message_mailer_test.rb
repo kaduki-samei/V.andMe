@@ -1,6 +1,6 @@
 require "test_helper"
 
-class FollowTest < ActiveSupport::TestCase
+class MessageMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end

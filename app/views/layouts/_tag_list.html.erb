@@ -1,0 +1,11 @@
+<div class="side-bar-tag col-2 mr-4">
+  <% tag_list.each do |tag|%>
+
+    <div class="tag-btn">
+      <%= link_to search_tag_post_path(tag) do %><% end %>
+      <i>#</i><%= tag.tag_name %>
+    </div>
+
+  <% end %>
+</div>
+

@@ -2,11 +2,12 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :DESC)
   end
 
   def update
@@ -20,6 +21,13 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "#{@user.name}さんが復活しました"
       redirect_to admin_users_path
     end
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "ユーザーを削除しました"
+    redirect_to admin_users_path
   end
 
 end

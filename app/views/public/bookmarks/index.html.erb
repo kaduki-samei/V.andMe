@@ -1,2 +1,37 @@
-<h1>Public::Bookmarks#index</h1>
-<p>Find me in app/views/public/bookmarks/index.html.erb</p>
+<div class="in-container">
+  <%= render "layouts/user_info", user: current_user %>
+
+  <div class="right-box ml-5">
+    <% unless @bookmarks.present? %>
+      <p>ブックマークしている記事はありません</p>
+    <% else %>
+      <div class="post-index">
+        <% @bookmark_posts.each do |posts| %>
+          <div class="post-card">
+            <%= link_to post_path(posts) do %><% end %>
+            <div class="post-title">
+              <%= posts.title %>
+            </div>
+            <div class="post-card-user">
+              <% if posts.user.profile_image? %>
+                <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+              <% else %>
+                <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
+              <% end %>
+              <%= posts.user.name %>
+              <span class="day-date">
+                <%= posts.created_at.strftime('%Y/%m/%d') %>
+              </span>
+            </div>
+            <div class="post-card-tag">
+              <% posts.tags.each do |tag| %>
+              <span class="mr-1"><i>#</i><%= tag.tag_name %></span>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
