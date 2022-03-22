@@ -30,22 +30,8 @@
   </span>
   <%#ブックマーク%>
   <% if user_signed_in? %>
-    <span class="ml-2">
-      <% if @post.bookmark_by?(current_user) %>
-        <%= link_to post_bookmark_path(@post), method: :delete, class: "bookmarked" do %>
-          <i class="fas fa-bookmark"></i>
-          <% if @post.bookmarks.count >= 1 %>
-            <%= @post.bookmarks.count %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= link_to post_bookmarks_path(@post), method: :post, class: "bookmark-yet" do %>
-          <i class="fas fa-bookmark"></i>
-          <% if @post.bookmarks.count >= 1 %>
-            <%= @post.bookmarks.count %>
-          <% end %>
-        <% end %>
-      <% end %>
+    <span id="bookmark-btn" class="ml-2">
+      <%= render "layouts/bookmark", post: @post %>
     </span>
   <% end %>
   <%#タグ%>
