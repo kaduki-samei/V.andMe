@@ -1,7 +1,7 @@
 <div class="in-container">
   <%= render "layouts/tag_list", tag_list: @tag_list %>
 
-<div class="right-box ml-5">
+<div class="right-box">
 <p>[<i>#</i><%= @tag.tag_name %>]を含む投稿 <%= @tag.posts.count %>件</p>
     <div class="post-index mt-4">
       <% @posts.each do |posts| %>

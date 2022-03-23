@@ -1,7 +1,7 @@
 <div class="in-container">
   <%= render "layouts/user_info", user: current_user %>
 
-  <div class="right-box ml-5">
+  <div class="right-box">
     <% unless @bookmarks.present? %>
       <p>ブックマークしている記事はありません</p>
     <% else %>

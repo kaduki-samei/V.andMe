@@ -30,8 +30,13 @@ body{
   display: flex;
 }
 
+.right-box {
+  width: 79%;
+}
+
 .push {
   height: 80px;
+  margin-bottom: 50px;
 }
 
 p {
@@ -79,9 +84,6 @@ p {
   border-radius: 0;
 }
 
-.btn:focus {
-	outline-style: none;
-}
 .blue-btn:focus {
 	outline-style: none;
 }
@@ -216,9 +218,9 @@ footer {
 
 /*----------トップページ----------*/
 .top-image {
-  width: 870px;
-  height: 340px;
+  max-width: 100%;
   padding: 10px;
+  aspect-ratio: 13 / 5;
   background-image: url('top.png');
   background-color: #a0e8fc;
   background-size: cover;
@@ -226,9 +228,10 @@ footer {
 }
 
 .top-image-box {
-  height: 320px;
+  aspect-ratio: 13 / 5;
   background-color: rgba(255, 255, 255, 0.4);
   text-align:center;
+  justify-content: center;
   padding: 15px;
   animation: fadeIn 2s ease 1s 1 normal backwards;
 }
@@ -258,16 +261,20 @@ footer {
 .post-index {
   display: flex;
   flex-flow: row wrap;
+  padding: auto;
 }
 
 .post-card {
   position: relative;
   height: 110px;
   width: 400px;
-  margin: 0 20px 20px 0;
+  margin: 10px 10px 10px 10px;
   padding: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   color: #000000;
+  white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .post-card a {
@@ -302,10 +309,12 @@ footer {
 
 /*----------サイドバー1----------*/
 .side-bar-tag {
-  padding: 15px;
+  width: 18%;
+  padding: 10px;
   border: 1px solid #ffb700;
   display: flex;
   flex-flow: row wrap;
+  margin-right: 3%;
   margin-bottom: auto;
 }
 
@@ -314,6 +323,7 @@ footer {
   margin: 0 5px 5px 0;
   padding: 2px 5px 2px 5px;
   color: #000000;
+  font-size: 12px;
   border: 1px solid #ffb700;
   border-radius: 50vh;
 }
@@ -332,11 +342,13 @@ footer {
 
 /*----------サイドバー2----------*/
 .side-bar-user {
+  width: 18%;
   padding: 15px;
   border: 1px solid #ffb700;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 3%;
   margin-bottom: auto;
 }
 
@@ -347,7 +359,7 @@ footer {
 }
 
 .user-blue-btn {
-  width: 138px;
+  width: 85%;
   color: #FFFFFF;
   background: #8ae0f8;
   border-radius: 0;
@@ -362,7 +374,7 @@ footer {
 }
 
 .user-orange-btn {
-  width: 138px;
+  width: 85%;
   color: #FFFFFF;
   background: #ffb700;
   border-radius: 0;
@@ -639,10 +651,180 @@ footer {
   margin: 10px 0 3px 0;
 }
 
-
+/*----------レスポンシブ----------*/
+@media screen and (min-width:900px) {
+  .phone {
+    display: none;
+  }
+}
 
 
 /*----------ちょっとしたもの----------*/
 .ball {
   color: #95e8ff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------レスポンシブ対応ipadくらい----------*/
+header .phone {
+  font-size: 22px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #95e8ff;
+  border: 1px solid #FFFFFF;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle:hover {
+  filter: brightness(110%);
+}
+
+.circle a {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width:900px) {
+
+  .push {
+    margin-bottom: 15px;
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .in-container {
+    display: block;
+    widows: 100%;
+  }
+
+  .right-box {
+    width: 100%;
+  }
+
+  .side-bar-tag {
+    width: 100%;
+    margin: 0 auto 10px auto;
+  }
+
+  .side-bar-user {
+    width: 50%;
+    margin: 0 auto 10px auto;
+  }
+
+  .top-image {
+    max-width: 100%;
+    height: auto;
+    padding: 8px 0 8px 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .top-image-box {
+    padding: 3px;
+  }
+
+  .top-image-text {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .top-image-subtext {
+    font-size: 8px;
+  }
+
+  .post-card-tag {
+    font-size: 12px;
+  }
+
+  .day-date {
+    font-size: 14px;
+  }
+}
+
+/*----------レスポンシブ対応iphoneくらい----------*/
+@media screen and (max-width:400px) {
+
+  .push {
+    margin-bottom: 15px;
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .in-container {
+    display: block;
+    widows: 100%;
+  }
+
+  .right-box {
+    width: 100%;
+  }
+
+  .side-bar-tag {
+    width: 100%;
+    margin: 0 auto 10px auto;
+  }
+
+  .side-bar-user {
+    width: 80%;
+    margin: 0 auto 10px auto;
+  }
+
+  .top-image {
+    max-width: 100%;
+    height: auto;
+    padding: 8px 0 8px 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .top-image-box {
+    padding: 3px;
+  }
+
+  .top-image-text {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .top-image-subtext {
+    font-size: 8px;
+  }
+
+  .post-card-tag {
+    font-size: 12px;
+  }
+
+  .day-date {
+    font-size: 14px;
+  }
 }

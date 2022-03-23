@@ -55,6 +55,8 @@
   </p>
 </div>
 
-<div class="row">
-<p class="ml-auto">退会は<%= link_to "こちら", quit_users_path %>から</p>
-</div>
+<% if user_signed_in? %>
+  <div class="row">
+    <p class="ml-auto">退会は<%= link_to "こちら", quit_users_path %>から</p>
+  </div>
+<% end %>
