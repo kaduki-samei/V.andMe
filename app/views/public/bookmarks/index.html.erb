@@ -8,23 +8,23 @@
       <div class="post-index">
         <% @bookmark_posts.each do |posts| %>
           <div class="post-card">
-            <%= link_to post_path(posts) do %><% end %>
+            <%= link_to post_path(posts.post) do %><% end %>
             <div class="post-title">
-              <%= posts.title %>
+              <%= posts.post.title %>
             </div>
             <div class="post-card-user">
-              <% if posts.user.profile_image? %>
-                <%= image_tag posts.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
+              <% if posts.post.user.profile_image? %>
+                <%= image_tag posts.post.user.profile_image.thumb.url, size: "30", class: "user-icon" %>
               <% else %>
                 <%= image_tag "default.png", alt: "user-icon", size: "30", class: "user-icon" %>
               <% end %>
               <%= posts.user.name %>
               <span class="day-date">
-                <%= posts.created_at.strftime('%Y/%m/%d') %>
+                <%= posts.post.created_at.strftime('%Y/%m/%d') %>
               </span>
             </div>
             <div class="post-card-tag">
-              <% posts.tags.each do |tag| %>
+              <% posts.post.tags.each do |tag| %>
               <span class="mr-1"><i>#</i><%= tag.tag_name %></span>
               <% end %>
             </div>

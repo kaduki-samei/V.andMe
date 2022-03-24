@@ -31,7 +31,7 @@
   <%#ブックマーク%>
   <% if user_signed_in? %>
     <span id="bookmark-btn" class="ml-2">
-      <%= render "layouts/bookmark", post: @post %>
+      <%= render "layouts/bookmark", post: @post, bookmark: @bookmark %>
     </span>
   <% end %>
   <%#タグ%>

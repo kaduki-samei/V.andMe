@@ -5,12 +5,10 @@
     <%= f.label :ユーザー名 %><br />
     <%= f.text_field :name %>
   </div>
-
   <div class="field">
     <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-
   <div class="actions mt-3">
     <%= f.submit "ログイン", class: "btn blue-btn" %>
   </div>
