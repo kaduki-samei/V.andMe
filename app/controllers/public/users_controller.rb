@@ -37,6 +37,11 @@ class Public::UsersController < ApplicationController
   end
 
 
+  def dummy
+    redirect_to new_user_registration_path
+  end
+
+
   private
 
   def user_params

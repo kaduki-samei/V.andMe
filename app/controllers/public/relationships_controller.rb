@@ -12,6 +12,7 @@ class Public::RelationshipsController < ApplicationController
 
   def index
     @users = current_user.followings.all
+    @bookmark_posts = Bookmark.includes(:user, :post).where(user_id: current_user.id).order(created_at: :DESC)
   end
 
 

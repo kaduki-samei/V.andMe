@@ -18,6 +18,8 @@
 body {
   font-family: 'Noto Sans JP', sans-serif;
   word-break: break-all;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .container-all {
@@ -37,10 +39,6 @@ body {
 .push {
   height: 80px;
   margin-bottom: 50px;
-}
-
-p {
-  font-size: 13px;
 }
 
 .alert {
@@ -98,7 +96,7 @@ p {
 }
 
 hr {
-  border-color: #808080;
+  border-color: #aaa;
 }
 
 .form {
@@ -115,6 +113,14 @@ a:hover {
 
 a:focus {
   outline-style: none;
+}
+
+.label {
+  margin: 10px 0 2px 0;
+}
+
+.gray {
+  color: #808080;
 }
 
 /*----------ヘッダー----------*/
@@ -182,7 +188,7 @@ header {
 
 /*----------フッター----------*/
 footer {
-  height: 80px;
+  height: 70px;
   background-color: #ffb700;
 }
 
@@ -196,6 +202,12 @@ footer {
 
 .copyright {
   font-size: 13px;
+}
+
+/*----------ユーザー認証----------*/
+.error {
+  color: red;
+  margin: 0;
 }
 
 /*----------アバウトページ----------*/
@@ -265,7 +277,7 @@ footer {
 }
 
 .post-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 .day-date {
@@ -277,6 +289,7 @@ footer {
 }
 
 .post-card-tag {
+  font-size: 12px;
   color: #808080;
   margin: 0px 2px 5px 10px;
 }
@@ -297,7 +310,7 @@ footer {
   margin: 0 5px 5px 0;
   padding: 2px 5px 2px 5px;
   color: #000000;
-  font-size: 12px;
+  font-size: 10px;
   border: 1px solid #ffb700;
   border-radius: 50vh;
 }
@@ -330,6 +343,10 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.user_introduction {
+  font-size: 12px;
 }
 
 .user-blue-btn {
@@ -370,8 +387,15 @@ footer {
 
 /*----------記事----------*/
 .note{
+  width: 90%;
+  margin: 0 auto;
   padding: 15px 20px 15px 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comment {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .nice{
@@ -406,19 +430,32 @@ footer {
   color: #ffb700;
 }
 
+.show-tag {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 /*----------コメント----------*/
-.comment {
-  display: flex;
+.comment-div1 {
   margin-top: 15px;
-}
-
-.comment form{
-  margin-left: auto;
-}
-
-.comment form div {
+  width: 100%;
   display: flex;
- justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.comment-form {
+  width: 55%;
+  height: 110px;
+  border: 1px solid #aaa;
+}
+
+.comment-form:focus {
+	outline-style: none;
+}
+
+.comment-div2 {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .comment-card {
@@ -469,7 +506,7 @@ footer {
   box-shadow: none;
 }
 
-
+/*----------投稿画面----------*/
 .post-form1 {
   border: 1px solid #aaa;
   width: 40%;
@@ -546,10 +583,6 @@ footer {
 
 .imagedelete {
   font-size: 13px;
-}
-
-.label {
-  margin: 10px 0 2px 0;
 }
 
 /*----------問い合わせ----------*/
@@ -712,7 +745,7 @@ header .phone {
 @media screen and (max-width:900px) {
 
   .theme {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
   p {
@@ -721,6 +754,11 @@ header .phone {
 
   .post-card {
     font-size: 0.75rem;
+    height: 100px;
+  }
+
+  .post-title {
+    font-size: 0.9rem;
   }
 
   .vm {
@@ -784,4 +822,29 @@ header .phone {
   .day-date {
     font-size: 14px;
   }
+
+.note{
+  width: 100%;
+}
+
+.comment {
+  width: 100%;
+}
+
+  .comment-form {
+  width: 90%;
+}
+
+.comment-card {
+  width: 90%;
+}
+
+.post-form1 {
+  width: 100%;
+}
+
+.post-form2 {
+  width: 100%;
+}
+
 }

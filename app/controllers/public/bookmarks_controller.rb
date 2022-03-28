@@ -4,7 +4,6 @@ class Public::BookmarksController < ApplicationController
 
   def index
     @bookmarks = current_user.bookmarks
-    @bookmark_posts = current_user.bookmark_posts.includes(:user, :bookmarks).order("bookmarks.created_at DESC")
     @bookmark_posts = Bookmark.includes(:user, :post).where(user_id: current_user.id).order(created_at: :DESC)
   end
 
@@ -12,9 +11,7 @@ class Public::BookmarksController < ApplicationController
     @post = Post.find(params[:post_id])
     user = current_user
     @bookmark = Bookmark.new(post_id: @post.id, user_id: user.id)
-    if @bookmark.save
-      flash[:notice] = "ブックマークしました"
-    end
+    @bookmark.save
   end
 
   def destroy

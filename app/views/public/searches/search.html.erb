@@ -1,5 +1,8 @@
-<div class="right-box">
-<p><%# @keywords.each do |tag| %>[<i>#</i><%#= tag.tag_name %>]<%# end %>含む投稿 <%#= tag.posts.count %>件</p>
+<div class="in-container">
+  <%= render "layouts/tag_list", tag_list: @tag_list %>
+
+  <div class="right-box">
+    <p class="gray"><% @keywords.each do |word| %>[<i>#</i><%= word %>]<% end %>を含む投稿 <%= @posts.count %>件</p>
     <div class="post-index mt-4">
       <% @posts.each do |posts| %>
         <div class="post-card">
@@ -27,3 +30,5 @@
       <% end %>
     </div>
   </div>
+
+</div>
