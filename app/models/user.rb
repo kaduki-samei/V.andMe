@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :authentication_keys => [:name]
+         :recoverable, :rememberable, :authentication_keys => [:name]
 
   mount_uploader :profile_image, ImageUploader
 
@@ -15,8 +15,9 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
 
-  validates :name, presence: true, length: { minimum: 1, maximum: 15 }
+  validates :name, presence: true, uniqueness: true, length: { minimum: 1, maximum: 10 }
   validates :introduction, length: { maximum: 60 }
+  validates :password, presence: true, length: { minimum: 8 },  on: :create
 
 
   #ログイン認証にEメールを使用しない

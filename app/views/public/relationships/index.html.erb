@@ -1,9 +1,9 @@
 <div class="in-container">
   <%= render "layouts/user_info", user: current_user %>
 
-  <div class="right-box ml-5">
+  <div class="right-box">
     <% unless @users.exists? %>
-      <p>フォローしている投稿者はいません</p>
+      <p class="gray">フォローしている投稿者はいません</p>
     <% else %>
 
       <div class="post-index">

@@ -1,0 +1,10 @@
+<div class="searchform">
+  <label for="searchform_flag" class="searchform_button"><div class="circle"><i class="fas fa-search"></i></div></label>
+  <input type="checkbox" id="searchform_flag" class="searchform_check">
+  <div class="searchform_popup">
+    <%= form_with url: searches_path, class: "search", method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, placeholder: "複数タグから検索" %>
+        <%= f.button :type => "submit", style: 'border-style: none;' do %><i class="fas fa-search"></i><% end %>
+    <% end %>
+  </div>
+</div>

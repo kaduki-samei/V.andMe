@@ -12,11 +12,12 @@
       <%= @post.user.name %>
     <% end %>
   </span>
+  <span class="phone"></br></span>
   <%#日付情報%>
   <span class="day-date ml-3">
     投稿<%= @post.created_at.strftime('%Y/%m/%d') %>
     <% if @post.created_at + 1.day < @post.updated_at %>
-      更新<%= @post.updated_at.strftime('%Y/%m/%d') %>
+      <i class="fas fa-sync-alt"></i><%= @post.updated_at.strftime('%Y/%m/%d') %>
     <% end %>
   </span>
   <%#ナイス%>
@@ -31,11 +32,11 @@
   <%#ブックマーク%>
   <% if user_signed_in? %>
     <span id="bookmark-btn" class="ml-2">
-      <%= render "layouts/bookmark", post: @post %>
+      <%= render "layouts/bookmark", post: @post, bookmark: @bookmark %>
     </span>
   <% end %>
   <%#タグ%>
-  <div class="mt-2">
+  <div class="show-tag mt-2">
     <% @tag_names.each do |tag| %>
     <span class="tag-btn">
       <%= link_to search_tag_post_path(tag) do %><% end %>
@@ -57,33 +58,34 @@
 
 
 <%#コメント%>
-<% @post.post_comments.each do |post_comment| %>
-  <div class="comment-card">
-    <span class="comment-user">
-      <%= link_to user_path(post_comment.user) do %>
-        <% if post_comment.user.profile_image? %>
-          <%= image_tag post_comment.user.profile_image.thumb.url, size: "25", class: "user-icon" %>
-        <% else %>
-          <%= image_tag "default.png", alt: "user-icon", size: "25", class: "user-icon" %>
+<div class="comment">
+  <p class="gray">コメント<%= @post.post_comments.count %>件</p>
+  <% @post.post_comments.each do |post_comment| %>
+    <div class="comment-card">
+      <span class="comment-user">
+        <%= link_to user_path(post_comment.user) do %>
+          <% if post_comment.user.profile_image? %>
+            <%= image_tag post_comment.user.profile_image.thumb.url, size: "25", class: "user-icon" %>
+          <% else %>
+            <%= image_tag "default.png", alt: "user-icon", size: "25", class: "user-icon" %>
+          <% end %>
+          <%= post_comment.user.name %>
         <% end %>
-        <%= post_comment.user.name %>
+      </span>
+      <span class="day-date ml-3"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+      <% if post_comment.user == current_user %>
+        <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: "baketu ml-3" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
-    </span>
-    <span class="day-date ml-3"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-    <% if post_comment.user == current_user %>
-      <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: "baketu ml-3" do %>
-        <i class="fas fa-trash-alt"></i>
-      <% end %>
-    <% end %>
-    <div class="mt-1"><%= safe_join(post_comment.body.split("\n"),tag(:br)) %></div>
-  </div>
-<% end %>
+      <div class="mt-1"><%= safe_join(post_comment.body.split("\n"),tag(:br)) %></div>
+    </div>
+  <% end %>
 
-<% if user_signed_in? %>
-  <div class="comment">
+  <% if user_signed_in? %>
     <%= form_with model: [@post, @post_comment] do |f| %>
-      <div><%= f.text_area :body, size: "50x4", placeholder: "コメント", class: "form mb-2" %></div>
-      <div><%= f.submit "送信する", class: "btn orange-btn" %></div>
+      <div class="comment-div1"><%= f.text_area :body, placeholder: "コメント", class: "comment-form mb-2" %></div>
+      <div class="comment-div2"><%= f.submit "送信する", class: "btn orange-btn" %></div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

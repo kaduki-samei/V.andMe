@@ -1,7 +1,7 @@
 <div class="in-container">
   <%= render "layouts/tag_list", tag_list: @tag_list %>
 
-  <div class="right-box ml-5">
+  <div class="right-box">
     <div class="theme"><span class="ball mr-1"><i class="fas fa-volleyball-ball"></i></span>新着記事</div>
     <div class="post-index mt-3">
       <% @posts.each do |posts| %>
@@ -19,6 +19,9 @@
             <%= posts.user.name %>
             <span class="day-date">
               <%= posts.created_at.strftime('%Y/%m/%d') %>
+              <% if posts.created_at + 1.day < posts.updated_at %>
+                <i class="fas fa-sync-alt"></i><%= posts.updated_at.strftime('%Y/%m/%d') %>
+              <% end %>
             </span>
           </div>
           <div class="post-card-tag">

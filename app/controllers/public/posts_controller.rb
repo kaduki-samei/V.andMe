@@ -19,10 +19,10 @@ class Public::PostsController < ApplicationController
       flash.now[:notice] = "記入漏れがあります"
       render :new
     end
-    if @tag_name.nil?
-      flash.now[:notice] = "タグを設定しましょう！"
-      render :new
-    end
+#    if @tag_names.nil?
+#      flash.now[:notice] = "タグを設定しましょう！"
+#      render :new
+#    end
   end
 
   def new_back
@@ -36,7 +36,9 @@ class Public::PostsController < ApplicationController
     post.user_id = current_user.id
     tag_list = params[:tag_name]
     if post.save
-      post.save_tag(tag_list)
+      if tag_list.present?
+        post.save_tag(tag_list)
+      end
       flash[:notice] = "記事を投稿しました"
       redirect_to user_path(current_user)
     end
@@ -46,6 +48,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @tag_names = @post.tags
     @post_comment = PostComment.new
+    @bookmark = Bookmark.find_by(user: current_user, post: @post)
   end
 
   def edit

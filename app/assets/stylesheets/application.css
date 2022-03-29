@@ -15,9 +15,11 @@
  */
 
 /*----------全体----------*/
-body{
+body {
   font-family: 'Noto Sans JP', sans-serif;
   word-break: break-all;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .container-all {
@@ -30,12 +32,13 @@ body{
   display: flex;
 }
 
-.push {
-  height: 80px;
+.right-box {
+  width: 79%;
 }
 
-p {
-  font-size: 13px;
+.push {
+  height: 80px;
+  margin-bottom: 50px;
 }
 
 .alert {
@@ -50,6 +53,16 @@ p {
   border-style:solid;
   border-color: #a0e8fc;
   border-width:thin;
+}
+
+.close {
+  color: #ffb700;
+}
+.close:hover {
+  color: #a0e8fc;
+}
+.close:focus {
+	outline-style: none;
 }
 
 .blue-btn {
@@ -79,15 +92,13 @@ p {
   border-radius: 0;
 }
 
-.btn:focus {
-	outline-style: none;
-}
 .blue-btn:focus {
 	outline-style: none;
 }
 .orange-btn:focus {
 	outline-style: none;
 }
+
 
 .theme {
   font-size: 34px;
@@ -96,7 +107,7 @@ p {
 }
 
 hr {
-  border-color: #808080;
+  border-color: #aaa;
 }
 
 .form {
@@ -115,17 +126,29 @@ a:focus {
   outline-style: none;
 }
 
+.label {
+  margin: 10px 0 2px 0;
+}
+
+.gray {
+  color: #808080;
+}
+
 /*----------ヘッダー----------*/
 header {
   height: 80px;
   color: #FFFFFF;
   background-color: #95e8ff;
+  display: flex;
+  align-items: center;
 }
 
 .vm {
   color: #FFFFFF;
   font-size: 58px;
   font-family: 'Baloo Tamma 2';
+  line-height: 0.5em;
+  margin: 10px 0 0 0;
 }
 
 .vm:hover {
@@ -180,7 +203,7 @@ header {
 
 /*----------フッター----------*/
 footer {
-  height: 80px;
+  height: 70px;
   background-color: #ffb700;
 }
 
@@ -190,6 +213,16 @@ footer {
 
 .footer_list:hover {
   color: #ffff64;
+}
+
+.copyright {
+  font-size: 13px;
+}
+
+/*----------ユーザー認証----------*/
+.error {
+  color: red;
+  margin: 0;
 }
 
 /*----------アバウトページ----------*/
@@ -216,58 +249,33 @@ footer {
 
 /*----------トップページ----------*/
 .top-image {
-  width: 870px;
-  height: 340px;
+  max-width: 100%;
   padding: 10px;
+  aspect-ratio: 13 / 5;
   background-image: url('top.png');
   background-color: #a0e8fc;
   background-size: cover;
   background-position: center;
 }
 
-.top-image-box {
-  height: 320px;
-  background-color: rgba(255, 255, 255, 0.4);
-  text-align:center;
-  padding: 15px;
-  animation: fadeIn 2s ease 1s 1 normal backwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.top-image-text {
-  font-size: 44px;
-  font-weight: bold;
-  line-height: 1.8;
-}
-
-.top-image-subtext {
-  font-size: 13px;
-}
-
 /*----------投稿一覧----------*/
 .post-index {
   display: flex;
   flex-flow: row wrap;
+  padding: auto;
 }
 
 .post-card {
   position: relative;
   height: 110px;
   width: 400px;
-  margin: 0 20px 20px 0;
+  margin: 10px 10px 10px 10px;
   padding: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   color: #000000;
+  white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .post-card a {
@@ -284,7 +292,7 @@ footer {
 }
 
 .post-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 .day-date {
@@ -296,16 +304,19 @@ footer {
 }
 
 .post-card-tag {
+  font-size: 12px;
   color: #808080;
   margin: 0px 2px 5px 10px;
 }
 
 /*----------サイドバー1----------*/
 .side-bar-tag {
-  padding: 15px;
+  width: 18%;
+  padding: 10px;
   border: 1px solid #ffb700;
   display: flex;
   flex-flow: row wrap;
+  margin-right: 3%;
   margin-bottom: auto;
 }
 
@@ -314,6 +325,7 @@ footer {
   margin: 0 5px 5px 0;
   padding: 2px 5px 2px 5px;
   color: #000000;
+  font-size: 10px;
   border: 1px solid #ffb700;
   border-radius: 50vh;
 }
@@ -332,11 +344,13 @@ footer {
 
 /*----------サイドバー2----------*/
 .side-bar-user {
+  width: 18%;
   padding: 15px;
   border: 1px solid #ffb700;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 3%;
   margin-bottom: auto;
 }
 
@@ -346,8 +360,12 @@ footer {
   align-items: center;
 }
 
+.user_introduction {
+  font-size: 12px;
+}
+
 .user-blue-btn {
-  width: 138px;
+  width: 85%;
   color: #FFFFFF;
   background: #8ae0f8;
   border-radius: 0;
@@ -362,7 +380,7 @@ footer {
 }
 
 .user-orange-btn {
-  width: 138px;
+  width: 85%;
   color: #FFFFFF;
   background: #ffb700;
   border-radius: 0;
@@ -384,8 +402,15 @@ footer {
 
 /*----------記事----------*/
 .note{
+  width: 90%;
+  margin: 0 auto;
   padding: 15px 20px 15px 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comment {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .nice{
@@ -420,19 +445,32 @@ footer {
   color: #ffb700;
 }
 
+.show-tag {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 /*----------コメント----------*/
-.comment {
-  display: flex;
+.comment-div1 {
   margin-top: 15px;
-}
-
-.comment form{
-  margin-left: auto;
-}
-
-.comment form div {
+  width: 100%;
   display: flex;
- justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.comment-form {
+  width: 55%;
+  height: 110px;
+  border: 1px solid #aaa;
+}
+
+.comment-form:focus {
+	outline-style: none;
+}
+
+.comment-div2 {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .comment-card {
@@ -454,7 +492,7 @@ footer {
   color: #000000;
 }
 
-/*----------フォローリスト----------*/
+/*----------ユーザー一覧----------*/
 .follow-index {
   display: flex;
   flex-flow: row wrap;
@@ -462,7 +500,7 @@ footer {
 
 .user-card {
   position: relative;
-  height: 110px;
+  min-height: 110px;
   width: 250px;
   margin: 0 20px 20px 0;
   padding: 8px;
@@ -483,7 +521,7 @@ footer {
   box-shadow: none;
 }
 
-
+/*----------投稿画面----------*/
 .post-form1 {
   border: 1px solid #aaa;
   width: 40%;
@@ -562,10 +600,6 @@ footer {
   font-size: 13px;
 }
 
-.label {
-  margin: 10px 0 2px 0;
-}
-
 /*----------問い合わせ----------*/
 .mail-form {
   border: 1px solid #aaa;
@@ -639,10 +673,221 @@ footer {
   margin: 10px 0 3px 0;
 }
 
-
-
-
 /*----------ちょっとしたもの----------*/
 .ball {
   color: #95e8ff;
+}
+
+/*----------レスポンシブ-PCでは表示しない----------*/
+@media screen and (min-width:900px) {
+  .phone {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------小さい画面向けのデザイン----------*/
+header .phone {
+  font-size: 22px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #95e8ff;
+  border: 1px solid #FFFFFF;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle:hover {
+  filter: brightness(110%);
+}
+
+.circle a {
+  color: #FFFFFF;
+}
+
+.searchform {
+  display: table;
+  position: relative;
+}
+
+.searchform_button:hover {
+  cursor: pointer;
+}
+
+.searchform_check {
+  display: none;
+}
+
+.searchform_popup {
+  position: absolute;
+  bottom: 0px;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: bottom 0.5s, opacity 0.5s;
+}
+.searchform_check:checked + .searchform_popup {
+  bottom: -100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/*----------レスポンシブ----------*/
+@media screen and (max-width:900px) {
+
+  .theme {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+  }
+
+  .post-card {
+    font-size: 0.75rem;
+    height: 100px;
+  }
+
+  .post-title {
+    font-size: 0.9rem;
+  }
+
+  .vm {
+    margin-left: 5px;
+  }
+
+  .push {
+    margin-bottom: 15px;
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .search {
+    padding: 0px 8px 8px 2px;
+  }
+
+  .search input {
+    width: 230px;
+    height: 25px;
+  }
+
+  .search svg {
+    font-size: 19px;
+    margin-bottom: 2px;
+  }
+
+  .in-container {
+    display: block;
+    widows: 100%;
+  }
+
+  .right-box {
+    width: 100%;
+  }
+
+  .side-bar-tag {
+    width: 100%;
+    margin: 0 auto 10px auto;
+  }
+
+  .side-bar-user {
+    width: 280px;
+    margin: 0 auto 10px auto;
+  }
+
+  .top-image {
+    max-width: 100%;
+    height: auto;
+    padding: 8px 0 8px 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .post-card-tag {
+    font-size: 12px;
+  }
+
+  .day-date {
+    font-size: 14px;
+  }
+
+.note{
+  width: 100%;
+}
+
+.comment {
+  width: 100%;
+}
+
+  .comment-form {
+  width: 90%;
+}
+
+.comment-card {
+  width: 90%;
+}
+
+.post-form1 {
+  width: 100%;
+}
+
+.post-form2 {
+  width: 100%;
+}
+
+/*----------問い合わせ----------*/
+.mail-form {
+  width: 90%;
+}
+
+.mail-form2 {
+  width: 90%;
+}
+.mail-form3 {
+  width: 100%;
+}
+
+.confirm-form {
+  width: 90%;
+}
+
+.confirm-form2 {
+  width: 90%;
+}
+
+.confirm-form3 {
+  width: 100%;
+}
+
+.thanx {
+  font-size: 13px;
+}
+
 }
