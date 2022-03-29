@@ -20,6 +20,9 @@
             <%= posts.user.name %>
             <span class="day-date">
               <%= posts.created_at.strftime('%Y/%m/%d') %>
+              <% if posts.created_at + 1.day < posts.updated_at %>
+                <i class="fas fa-sync-alt"></i><%= posts.updated_at.strftime('%Y/%m/%d') %>
+              <% end %>
             </span>
           </div>
           <div class="post-card-tag">

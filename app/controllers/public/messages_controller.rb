@@ -7,6 +7,7 @@ class Public::MessagesController < ApplicationController
   def mail_confirm
     @message = Message.new(message_params)
     if @message.invalid?
+      flash.now[:notice] = "空欄があります。または、メールアドレスが無効です。"
       render :new
     end
   end

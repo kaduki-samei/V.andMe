@@ -55,6 +55,16 @@ body {
   border-width:thin;
 }
 
+.close {
+  color: #ffb700;
+}
+.close:hover {
+  color: #a0e8fc;
+}
+.close:focus {
+	outline-style: none;
+}
+
 .blue-btn {
   color: #FFFFFF;
   background: #8ae0f8;
@@ -88,6 +98,7 @@ body {
 .orange-btn:focus {
 	outline-style: none;
 }
+
 
 .theme {
   font-size: 34px;
@@ -128,12 +139,16 @@ header {
   height: 80px;
   color: #FFFFFF;
   background-color: #95e8ff;
+  display: flex;
+  align-items: center;
 }
 
 .vm {
   color: #FFFFFF;
   font-size: 58px;
   font-family: 'Baloo Tamma 2';
+  line-height: 0.5em;
+  margin: 10px 0 0 0;
 }
 
 .vm:hover {
@@ -477,7 +492,7 @@ footer {
   color: #000000;
 }
 
-/*----------フォローリスト----------*/
+/*----------ユーザー一覧----------*/
 .follow-index {
   display: flex;
   flex-flow: row wrap;
@@ -485,7 +500,7 @@ footer {
 
 .user-card {
   position: relative;
-  height: 110px;
+  min-height: 110px;
   width: 250px;
   margin: 0 20px 20px 0;
   padding: 8px;
@@ -845,6 +860,34 @@ header .phone {
 
 .post-form2 {
   width: 100%;
+}
+
+/*----------問い合わせ----------*/
+.mail-form {
+  width: 90%;
+}
+
+.mail-form2 {
+  width: 90%;
+}
+.mail-form3 {
+  width: 100%;
+}
+
+.confirm-form {
+  width: 90%;
+}
+
+.confirm-form2 {
+  width: 90%;
+}
+
+.confirm-form3 {
+  width: 100%;
+}
+
+.thanx {
+  font-size: 13px;
 }
 
 }

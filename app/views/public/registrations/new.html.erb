@@ -14,16 +14,12 @@
   </div>
   <div class="field">
     <p class="label">パスワード(半角英数８文字以上)</p>
-    <%= f.text_field :password, autocomplete: "半角英数８文字以上" %>
+    <%= f.password_field :password, autocomplete: "半角英数８文字以上" %>
     <% if resource.errors.include?(:password) %>
       <% resource.errors.full_messages_for(:password).each do |error_message| %>
         <p class="error"><%= error_message %></p>
       <% end %>
     <% end %>
-  </div>
-  <div class="field">
-    <p class="label">パスワード(確認)</p>
-    <%= f.text_field :password_confirmation, autocomplete: "再入力" %>
   </div>
   <div class="actions mt-3">
     <%= f.submit "登録", class: "btn blue-btn" %>

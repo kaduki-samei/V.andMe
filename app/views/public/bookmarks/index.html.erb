@@ -3,7 +3,7 @@
 
   <div class="right-box">
     <% unless @bookmarks.present? %>
-      <p>ブックマークしている記事はありません</p>
+      <p class="gray">ブックマークしている記事はありません</p>
     <% else %>
       <div class="post-index">
         <% @bookmark_posts.each do |posts| %>

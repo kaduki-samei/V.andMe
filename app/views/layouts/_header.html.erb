@@ -35,18 +35,38 @@
           </li>
           <!--レスポンシブ対応↑-->
         <% elsif admin_signed_in? %>
-          <li class="nav_item mr-4">
+          <li class="nav_item pc mr-4">
             <%= render "layouts/search" %>
           </li>
-          <li class="nav_item mr-4">
+          <li class="nav_item pc mr-4">
             <%= link_to "post index", admin_posts_path, class: "btn header-btn"%>
           </li>
-          <li class="nav_item mr-4">
+          <li class="nav_item pc mr-4">
             <%= link_to "user index", admin_users_path, class: "btn header-btn"%>
           </li>
-          <li class="nav_item">
+          <li class="nav_item pc">
             <%= link_to "log out", destroy_admin_session_path, class: "btn header-btn"%>
           </li>
+          <!--レスポンシブ対応↓-->
+          <li class="nav_item phone mr-2">
+            <%= render "layouts/search_phone" %>
+          </li>
+          <li class="nav_item phone mr-2">
+            <div class="circle">
+              <%= link_to admin_posts_path do %><i class="fas fa-book-open"></i><% end %>
+            </div>
+          </li>
+          <li class="nav_item phone mr-2">
+            <div class="circle">
+              <%= link_to admin_users_path do %><i class="fas fa-users"></i><% end %>
+            </div>
+          </li>
+          <li class="nav_item phone mr-1">
+            <div class="circle">
+              <%= link_to destroy_admin_session_path do %><i class="fas fa-sign-out-alt"></i><% end %>
+            </div>
+          </li>
+          <!--レスポンシブ対応↑-->
         <% else %>
           <li class="nav_item pc mr-4">
             <%= render "layouts/search" %>
