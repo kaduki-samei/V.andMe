@@ -48,7 +48,7 @@
 
 ## 設計書
 【ER図】<br>
- https://drive.google.com/file/d/1h5mrHLja_VbP4Kyt7SyR1o8CQE4fVelj/view?usp=sharing<br>
+ https://docs.google.com/document/d/11SGqt94YU6o6u35tRaDc3r4_8bAtT3-kxia9QaQVRtY/edit?usp=sharing<br>
 【詳細設計】<br>
  https://docs.google.com/spreadsheets/d/1hklpnFVpt3JdrmhrZfAOiYLfR7WYOwir-JfIIRlwFxQ/edit?usp=sharing
 
@@ -64,7 +64,5 @@
 
 ## 🙏使用素材
  ロゴ：<a href=https://www.designevo.com/>designevo</a><br>
- アイコン：<a href=https://icooon-mono.com/>ICOOON MONO</a><br>
  アイコン：<a href=https://fontawesome.com/>Font Awesome</a><br>
- ファビコン：<a href=https://ao-system.net/alphaicon/>半透過マルチアイコンfavicon.icoを作ろう!</a><br>
  フォント：<a href=https://fonts.google.com/>Google Fonts</a><br>
