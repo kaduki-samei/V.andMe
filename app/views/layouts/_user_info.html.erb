@@ -3,7 +3,7 @@
     <div class="user_image mb-3">
       <% if user.profile_image? %>
         <%= image_tag user.profile_image.to_s, size: "100", class: "user-icon" %>
-        <%= image_tag user.profile_image.thumb.url, size: "100", class: "user-icon" %>
+        <!--<%#= image_tag user.profile_image.thumb.url, size: "100", class: "user-icon" %>-->
       <% else %>
         <%= image_tag "default.png", alt: "user-icon", size: "100", class: "user-icon" %>
       <% end %>
