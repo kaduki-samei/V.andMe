@@ -19,15 +19,14 @@ class Public::PostsController < ApplicationController
       flash.now[:notice] = "記入漏れがあります"
       render :new
     end
-#    if @tag_names.nil?
-#      flash.now[:notice] = "タグを設定しましょう！"
-#      render :new
-#    end
   end
 
   def new_back
     @post = Post.new(post_params)
-    @tag_names = params[:tag_name].join(/[[:blank:]]+/)
+    @tag_names = params[:tag_name]
+    if @tag_names.present?
+      @tag_names = params[:tag_name].join(/[[:blank:]]+/)
+    end
     render :new
   end
 
@@ -72,7 +71,10 @@ class Public::PostsController < ApplicationController
   def edit_back
     @post = Post.find(params[:id])
     @post.attributes = post_params
-    @tag_names = params[:tag_name].join(/[[:blank:]]+/)
+    @tag_names = params[:tag_name]
+    if @tag_names.present?
+      @tag_names = params[:tag_name].join(/[[:blank:]]+/)
+    end
     render :edit
   end
 
