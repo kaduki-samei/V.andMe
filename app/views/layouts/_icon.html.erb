@@ -1,5 +1,5 @@
 <% if user.profile_image? %>
-  <%= image_tag user.profile_image.thumb.url, size: "40", class: "header-user-icon" %>
+  <%= image_tag user.profile_image.url, size: "40", class: "header-user-icon" %>
 <% else %>
   <%= image_tag "default.png", alt: "user-icon", size: "40", class: "header-user-icon" %>
 <% end %>
