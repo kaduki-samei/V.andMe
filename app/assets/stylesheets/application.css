@@ -20,6 +20,7 @@ body {
   word-break: break-all;
   font-size: 14px;
   line-height: 1.7;
+  min-height: 100vh;
 }
 
 .container-all {
@@ -136,7 +137,7 @@ a:focus {
 
 /*----------ヘッダー----------*/
 header {
-  height: 80px;
+  min-height: 80px;
   color: #FFFFFF;
   background-color: #95e8ff;
   display: flex;
@@ -176,9 +177,13 @@ header {
 	background-color: #FFFFFF;
 	border:1px solid #aaa;
 	padding: 2px 8px 2px 2px;
+	margin-top: 2px;
+	font-size: 12px;
 }
 .search input{
 	border: none;
+	width: 250px;
+	height: 29px;
 }
 ::placeholder {
   color: #e0e0e0;
@@ -200,10 +205,14 @@ header {
 .search placeholder {
   color: #FFFFFF;
 }
+.search svg {
+  font-size: 17px;
+  margin-top: 4px;
+}
 
 /*----------フッター----------*/
 footer {
-  height: 70px;
+  min-height: 70px;
   background-color: #ffb700;
 }
 
@@ -339,7 +348,7 @@ footer {
 }
 
 .tag-btn:hover {
-  border: 1px solid #95e8ff;
+  background-color: #ffb700;
 }
 
 /*----------サイドバー2----------*/
@@ -409,6 +418,11 @@ footer {
 }
 
 .comment {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.confirm-btn {
   width: 90%;
   margin: 0 auto;
 }
@@ -759,6 +773,14 @@ header .phone {
 /*----------レスポンシブ----------*/
 @media screen and (max-width:900px) {
 
+  html {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    min-height: -webkit-fill-available;
+  }
+
   .theme {
     font-size: 1.3rem;
   }
@@ -789,17 +811,16 @@ header .phone {
   }
 
   .search {
-    padding: 0px 8px 8px 2px;
+    margin: 0 20px 0 0;
+    padding: 0 8px 0 2px;
   }
 
   .search input {
-    width: 230px;
-    height: 25px;
+    height: 28px;
   }
 
   .search svg {
-    font-size: 19px;
-    margin-bottom: 2px;
+    font-size: 16px;
   }
 
   .in-container {
@@ -838,56 +859,56 @@ header .phone {
     font-size: 14px;
   }
 
-.note{
-  width: 100%;
-}
+  .note{
+    width: 100%;
+  }
 
-.comment {
-  width: 100%;
-}
+  .comment {
+    width: 100%;
+  }
 
-  .comment-form {
-  width: 90%;
-}
+    .comment-form {
+    width: 90%;
+  }
 
-.comment-card {
-  width: 90%;
-}
+  .comment-card {
+    width: 90%;
+  }
 
-.post-form1 {
-  width: 100%;
-}
+  .post-form1 {
+    width: 100%;
+  }
 
-.post-form2 {
-  width: 100%;
-}
+  .post-form2 {
+    width: 100%;
+  }
 
 /*----------問い合わせ----------*/
-.mail-form {
-  width: 90%;
-}
+  .mail-form {
+    width: 90%;
+  }
 
-.mail-form2 {
-  width: 90%;
-}
-.mail-form3 {
-  width: 100%;
-}
+  .mail-form2 {
+    width: 90%;
+  }
+  .mail-form3 {
+    width: 100%;
+  }
 
-.confirm-form {
-  width: 90%;
-}
+  .confirm-form {
+    width: 90%;
+  }
 
-.confirm-form2 {
-  width: 90%;
-}
+  .confirm-form2 {
+    width: 90%;
+  }
 
-.confirm-form3 {
-  width: 100%;
-}
+  .confirm-form3 {
+    width: 100%;
+  }
 
-.thanx {
-  font-size: 13px;
-}
+  .thanx {
+    font-size: 13px;
+  }
 
 }

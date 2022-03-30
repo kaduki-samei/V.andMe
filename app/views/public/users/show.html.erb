@@ -6,7 +6,7 @@
       <p class="gray">投稿記事 0件</p>
     <% else %>
 
-      <p class="gray">投稿記事 <% @posts.count %>件</p>
+      <p class="gray">投稿記事 <%= @posts.count %>件</p>
       <div class="post-index">
         <% @posts.each do |posts| %>
           <div class="post-card">

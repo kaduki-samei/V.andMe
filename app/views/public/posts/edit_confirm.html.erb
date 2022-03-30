@@ -17,7 +17,7 @@
   <p><%= @post.content %></p>
 </div>
 
-<div class="d-flex flex-row">
+<div class="confirm-btn d-flex flex-row">
   <%= form_with model: @post, url: edit_back_post_path(tag_name: @tag_names), local: true do |f| %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :tag_name %>
