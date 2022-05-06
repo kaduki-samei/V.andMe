@@ -409,8 +409,27 @@ footer {
 	outline-style: none;
 }
 
+.sns-link {
+  list-style: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 3px;
+}
+.twitter {
+  color: #808080;
+}
+.instagram {
+  color: #808080;
+}
+.twitter:hover {
+  color: #ffb700;
+}
+.instagram:hover {
+  color: #ffb700;
+}
+
 /*----------記事----------*/
-.note{
+.note {
   width: 90%;
   margin: 0 auto;
   padding: 15px 20px 15px 20px;

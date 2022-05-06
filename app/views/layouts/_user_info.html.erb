@@ -10,6 +10,24 @@
     <div class="user_name mb-1">
       <%= user.name %>
     </div>
+
+    <div class="SNS">
+      <% if user.twitter.present? %>
+        <li class="sns-link">
+          <%= link_to user.twitter, target: :_blank, class: "twitter" do %>
+            <i class="fab fa-twitter-square"></i>
+          <% end %>
+        </li>
+      <% end %>
+      <% if user.instagram.present? %>
+        <li class="sns-link">
+          <%= link_to user.instagram, target: :_blank, class: "instagram" do %>
+            <i class="fab fa-instagram"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </div>
+
     <div class="user_introduction">
       <%= user.introduction %>
     </div>
